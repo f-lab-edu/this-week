@@ -1,7 +1,6 @@
-import React from 'react';
-import Icon from '../icon';
+import Icon from 'components/icon';
 
-const Nav = () => {
+const Navigation = () => {
   return (
     <nav className="flex h-12 items-center justify-between border-b border-main-border px-5">
       <Icon icon="bars"></Icon>
@@ -10,4 +9,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navigation;
