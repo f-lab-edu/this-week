@@ -1,8 +1,7 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUser, faEllipsis } from '@fortawesome/free-solid-svg-icons';
 
-type Icon = 'bars' | 'user';
+type Icon = 'bars' | 'user' | 'ellipsis';
 type Size = '10px' | '15px' | '20px' | '25px';
 
 const Icon = (props: { icon: Icon; size?: Size }) => {
@@ -22,4 +21,5 @@ export default Icon;
 const FAICONS = {
   bars: faBars,
   user: faUser,
+  ellipsis: faEllipsis,
 };

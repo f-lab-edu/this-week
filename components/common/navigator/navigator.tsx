@@ -1,6 +1,6 @@
-import Icon from 'components/icon';
+import Icon from 'components/common/icon/icon';
 
-const Navigation = () => {
+const Navigator = () => {
   return (
     <nav className="flex h-12 items-center justify-between border-b border-main-border px-5">
       <Icon icon="bars"></Icon>
@@ -9,4 +9,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Navigator;

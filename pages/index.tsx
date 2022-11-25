@@ -1,23 +1,29 @@
-import Nav from 'components/navigation';
-import CurrentData from 'components/currentData';
+import Navigator from 'components/common/navigator/navigator';
+import CurrentData from 'components/common/title/dateTitle';
+import HabitCard from 'components/common/card/habitCard';
+import MotivationTitle from 'components/common/title/motivationTitle';
+import StatisticTitle from 'components/common/title/statisticTitle';
+import DataSummary from 'components/common/card/dataSummary';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <Nav></Nav>
-      <main className="p-6">
+      <Navigator />
+      <div className="p-6">
         <header className="flex flex-col gap-5">
           <CurrentData />
-          {/* Todo: 재사용 가능하게, 동일한 날에는 동일한 메시지 */}
-          <h1 className="text-2xl font-semibold">
-            <pre className="whitespace-pre-line">{MAIN_TEXT[0]}</pre>
-          </h1>
+          <MotivationTitle />
         </header>
-      </main>
+        <main className="flex flex-col gap-2.5 py-6">
+          <HabitCard content="영어공부 30분" />
+          <HabitCard content="코딩테스트 1문제" />
+          <HabitCard content="영양제 챙겨먹기" />
+        </main>
+        <section className="py-11">
+          <StatisticTitle />
+          <DataSummary />
+        </section>
+      </div>
     </div>
   );
 }
-
-const MAIN_TEXT = {
-  0: '작은 변화는 큰 성장을 \n 가져올 거예요.',
-};
