@@ -1,9 +1,9 @@
-import Navigator from 'components/common/navigator/navigator';
-import CurrentData from 'components/common/title/dateTitle';
-import HabitCard from 'components/common/card/habitCard';
-import MotivationTitle from 'components/common/title/motivationTitle';
-import StatisticTitle from 'components/common/title/statisticTitle';
-import DataSummary from 'components/common/card/dataSummary';
+import Navigator from 'components/navigator/navigator';
+import CurrentData from 'components/title/dateTitle';
+import HabitCard from 'components/card/habitCard';
+import MotivationTitle from 'components/title/motivationTitle';
+import StatisticTitle from 'components/title/statisticTitle';
+import DataSummary from 'components/card/dataSummary';
 
 export default function Home() {
   return (

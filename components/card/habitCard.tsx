@@ -1,4 +1,4 @@
-import Icon from 'components/common/icon/icon';
+import Icon from 'components/icon/icon';
 
 const HabitCard = (props: { content: string }) => {
   const { content = '선택된 습관이 없습니다.' } = props;
