@@ -8,7 +8,7 @@ const HabitCard = (props: { content: string }) => {
         <span className="h-6 w-6 rounded-full bg-main-red-10"></span>
         <p>{content}</p>
       </div>
-      <Icon icon="ellipsis" size="20px" />
+      <Icon icon="faEllipsis" size="20px" />
     </div>
   );
 };

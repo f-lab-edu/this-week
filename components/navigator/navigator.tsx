@@ -1,6 +1,5 @@
 import Icon from 'components/icon/icon';
-import Portal from 'components/portal';
-import Blur from 'components/modal/blur';
+import SideTap from 'components/modal/sideTap';
 
 import { useState } from 'react';
 
@@ -10,15 +9,11 @@ const Navigator = () => {
   return (
     <nav className="flex h-12 items-center justify-between border-b border-main-border px-5">
       <div onClick={() => setModal((prev) => !prev)}>
-        <Icon icon="bars"></Icon>
+        <Icon icon="faBars"></Icon>
       </div>
-      <Icon icon="user"></Icon>
+      <Icon icon="faUser"></Icon>
       {modal && (
-        <Portal>
-          <Blur>
-            <div className="flex h-full w-3/5 items-center justify-center rounded-tr-lg rounded-br-lg bg-white"></div>
-          </Blur>
-        </Portal>
+        <SideTap handleClick={() => setModal((prev) => !prev)}></SideTap>
       )}
     </nav>
   );
