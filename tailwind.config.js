@@ -11,6 +11,7 @@ module.exports = {
         'main-red-10': '#D341571A',
         'main-pink': '#F883B8',
         'main-beige': '#FAF3F0',
+        'main-beige-60': '#FAF3F099',
         'main-border': '#F0F0F0',
         'sub-text': '#AAAAAA',
       },

@@ -4,6 +4,8 @@ import Portal from 'components/portal';
 import Blur from 'components/modal/blur';
 import Icon from 'components/icon/icon';
 
+import Link from 'next/link';
+
 import useOutsideClick from 'customs/useOutsideClick';
 
 const SideTap = (props: { handleClick(): void }) => {
@@ -13,6 +15,7 @@ const SideTap = (props: { handleClick(): void }) => {
   useEffect(() => {
     if (clicked) props.handleClick();
   }, [clicked]);
+
   return (
     <Portal>
       <Blur>
@@ -22,30 +25,60 @@ const SideTap = (props: { handleClick(): void }) => {
         >
           <h1 className="text-3xl font-bold">디스위크</h1>
           <ul className="flex flex-col gap-4 text-xl">
-            <li className="flex items-center gap-3">
-              <Icon icon="faBullseye"></Icon>
-              <button>오늘의 습관</button>
-            </li>
-            <li className="flex items-center gap-3">
-              <Icon icon="faBoxOpen"></Icon>
-              <button>습관 관리</button>
-            </li>
-            <li className="flex items-center gap-3">
-              <Icon icon="faChartPie"></Icon>
-              <button>습관 데이터</button>
-            </li>
-            <li className="flex items-center gap-3">
-              <Icon icon="faSquareCheck"></Icon>
-              <button>회고 관리</button>
-            </li>
-            <li className="flex items-center gap-3">
-              <Icon icon="faUser"></Icon>
-              <button>유저 정보</button>
-            </li>
-            <li className="flex items-center gap-3">
-              <Icon icon="faKey"></Icon>
-              <button>오늘의 습관</button>
-            </li>
+            <Link href={`/`}>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => props.handleClick()}
+              >
+                <Icon icon="faBullseye"></Icon>
+                <button>오늘의 습관</button>
+              </li>
+            </Link>
+            <Link href={`/manage/habit`}>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => props.handleClick()}
+              >
+                <Icon icon="faBoxOpen"></Icon>
+                <button>습관 관리</button>
+              </li>
+            </Link>
+            <Link href={`/statistic`}>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => props.handleClick()}
+              >
+                <Icon icon="faChartPie"></Icon>
+                <button>습관 데이터</button>
+              </li>
+            </Link>
+            <Link href={`/manage/review`}>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => props.handleClick()}
+              >
+                <Icon icon="faSquareCheck"></Icon>
+                <button>회고 관리</button>
+              </li>
+            </Link>
+            <Link href={`/user`}>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => props.handleClick()}
+              >
+                <Icon icon="faUser"></Icon>
+                <button>유저 정보</button>
+              </li>
+            </Link>
+            <Link href={`/setting`}>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => props.handleClick()}
+              >
+                <Icon icon="faKey"></Icon>
+                <button>설정</button>
+              </li>
+            </Link>
           </ul>
         </div>
       </Blur>
