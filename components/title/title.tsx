@@ -6,9 +6,9 @@ type TextTemplate = {
 
 const Title = ({ text }: { text: TextTemplate }) => {
   return (
-    <div className="text-2xl font-semibold">
+    <h1 className="text-2xl font-semibold">
       <pre className="whitespace-pre-line">{text[0]}</pre>
-    </div>
+    </h1>
   );
 };
 
