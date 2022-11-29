@@ -1,7 +1,8 @@
-import { useRef, useEffect, useState, ReactNode } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { ChildrenProps } from 'types/props';
 
-const Portal = ({ children }: { children: ReactNode }) => {
+const Portal = ({ children }: ChildrenProps) => {
   const ref = useRef<Element | null>(null);
   const [mounted, setMounted] = useState(false);
 

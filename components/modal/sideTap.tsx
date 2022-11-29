@@ -8,12 +8,14 @@ import Link from 'next/link';
 
 import useOutsideClick from 'customs/useOutsideClick';
 
-const SideTap = (props: { handleClick(): void }) => {
+import { HandleClickProps } from 'types/props';
+
+const SideTap = ({ handleClick }: HandleClickProps) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
   const { clicked } = useOutsideClick(modalRef);
 
   useEffect(() => {
-    if (clicked) props.handleClick();
+    if (clicked) handleClick();
   }, [clicked]);
 
   return (
@@ -28,7 +30,7 @@ const SideTap = (props: { handleClick(): void }) => {
             <Link href={`/`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => props.handleClick()}
+                onClick={() => handleClick()}
               >
                 <Icon icon="faBullseye"></Icon>
                 <button>오늘의 습관</button>
@@ -37,7 +39,7 @@ const SideTap = (props: { handleClick(): void }) => {
             <Link href={`/manage/habit`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => props.handleClick()}
+                onClick={() => handleClick()}
               >
                 <Icon icon="faBoxOpen"></Icon>
                 <button>습관 관리</button>
@@ -46,7 +48,7 @@ const SideTap = (props: { handleClick(): void }) => {
             <Link href={`/statistic`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => props.handleClick()}
+                onClick={() => handleClick()}
               >
                 <Icon icon="faChartPie"></Icon>
                 <button>습관 데이터</button>
@@ -55,7 +57,7 @@ const SideTap = (props: { handleClick(): void }) => {
             <Link href={`/manage/review`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => props.handleClick()}
+                onClick={() => handleClick()}
               >
                 <Icon icon="faSquareCheck"></Icon>
                 <button>회고 관리</button>
@@ -64,7 +66,7 @@ const SideTap = (props: { handleClick(): void }) => {
             <Link href={`/user`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => props.handleClick()}
+                onClick={() => handleClick()}
               >
                 <Icon icon="faUser"></Icon>
                 <button>유저 정보</button>
@@ -73,7 +75,7 @@ const SideTap = (props: { handleClick(): void }) => {
             <Link href={`/setting`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => props.handleClick()}
+                onClick={() => handleClick()}
               >
                 <Icon icon="faKey"></Icon>
                 <button>설정</button>

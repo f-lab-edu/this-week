@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { ChildrenProps } from 'types/props';
 
-const MainContainer = ({ children }: { children: ReactNode }) => {
+const MainContainer = ({ children }: ChildrenProps) => {
   return <div className="p-6">{children}</div>;
 };
 

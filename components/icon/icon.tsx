@@ -23,10 +23,13 @@ type Icon =
   | 'faPlus';
 type Size = '10px' | '15px' | '20px' | '25px';
 type Color = '#FFFFFF' | '#000000' | '#808080';
+type Props = {
+  icon: Icon;
+  size?: Size;
+  color?: Color;
+};
 
-const Icon = (props: { icon: Icon; size?: Size; color?: Color }) => {
-  const { icon, size = '25px', color = '#808080' } = props;
-
+const Icon = ({ icon, size = '25px', color = '#808080' }: Props) => {
   return (
     <div className="flex items-center justify-center">
       <FontAwesomeIcon

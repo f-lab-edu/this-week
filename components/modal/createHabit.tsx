@@ -8,9 +8,11 @@ import useOutsideClick from 'customs/useOutsideClick';
 import CreateButton from 'components/button/createButton';
 import DayCheckButton from 'components/button/dayCheckButton';
 
+import { HandleClickProps } from 'types/props';
+
 type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
-const CreateHabit = (props: { handleClick(): void }) => {
+const CreateHabit = ({ handleClick }: HandleClickProps) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
   const { clicked } = useOutsideClick(modalRef);
   const [habitName, setHabitName] = useState<string>('');
@@ -25,7 +27,7 @@ const CreateHabit = (props: { handleClick(): void }) => {
   });
 
   useEffect(() => {
-    if (clicked) props.handleClick();
+    if (clicked) handleClick();
   }, [clicked]);
 
   const handleDayCheck = (dayOfWeek: DayOfWeek) => {
@@ -92,7 +94,7 @@ const CreateHabit = (props: { handleClick(): void }) => {
               text="습관 추가하기"
               handleClick={() => {
                 console.log('create habit!');
-                props.handleClick();
+                handleClick();
               }}
             />
           </div>

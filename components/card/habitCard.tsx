@@ -2,8 +2,11 @@ import { useState } from 'react';
 import Checkbox from '@mui/joy/Checkbox';
 // import Icon from 'components/icon/icon';
 
-const HabitCard = (props: { content: string }) => {
-  const { content = '선택된 습관이 없습니다.' } = props;
+type Props = {
+  content: string;
+};
+
+const HabitCard = ({ content = '선택된 습관이 없습니다.' }: Props) => {
   const [checked, setChecked] = useState(false);
   return (
     <li
