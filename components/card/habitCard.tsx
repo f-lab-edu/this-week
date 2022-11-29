@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import Checkbox from '@mui/joy/Checkbox';
+import useHabitCardClick from 'customs/useHabitCardClick';
 // import Icon from 'components/icon/icon';
 
 type Props = {
@@ -7,13 +7,14 @@ type Props = {
 };
 
 const HabitCard = ({ content = '선택된 습관이 없습니다.' }: Props) => {
-  const [checked, setChecked] = useState(false);
+  const { checked, method } = useHabitCardClick();
+
   return (
     <li
-      className={`flex h-10 items-center justify-between rounded-lg ${
-        checked ? 'bg-main-beige line-through opacity-40' : 'bg-main-beige'
-      } px-3.5`}
-      onClick={() => setChecked((prev) => !prev)}
+      className={`flex h-10 items-center justify-between rounded-lg bg-main-beige px-3.5 ${
+        checked ? 'line-through opacity-40' : ''
+      }`}
+      {...method}
     >
       <div className="flex items-center gap-5">
         <Checkbox

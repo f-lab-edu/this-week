@@ -2,7 +2,7 @@ import Icon from 'components/icon/icon';
 
 type Text = '습관 생성하기' | '습관 추가하기' | '회고 추가하기';
 type Props = {
-  text: Text;
+  text?: Text;
   handleClick?: () => void;
 };
 
