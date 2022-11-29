@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBars,
   faUser,
@@ -10,6 +9,11 @@ import {
   faKey,
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
+
+import dynamic from 'next/dynamic';
+const FontAwesomeIcon = dynamic(
+  async () => (await import('@fortawesome/react-fontawesome')).FontAwesomeIcon,
+);
 
 type Icon =
   | 'faBars'
