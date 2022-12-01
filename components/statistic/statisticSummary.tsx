@@ -1,4 +1,4 @@
-const DataSummary = () => {
+const StatisticSummary = () => {
   return (
     <article className="grid-rows-7 grid h-96 w-full grid-cols-2 gap-2 py-6 text-lg">
       <div className="row-span-3 rounded-2xl bg-main-beige p-5">
@@ -17,4 +17,4 @@ const DataSummary = () => {
   );
 };
 
-export default DataSummary;
+export default StatisticSummary;

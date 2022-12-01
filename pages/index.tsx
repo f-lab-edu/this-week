@@ -2,7 +2,7 @@ import Navigator from 'components/navigator/navigator';
 import CurrentData from 'components/title/dateTitle';
 import HabitCard from 'components/card/habitCard';
 import Title from 'components/title/title';
-import DataSummary from 'components/card/dataSummary';
+import StatisticSummary from 'components/statistic/statisticSummary';
 import MainContainer from 'components/container/mainContainer';
 import HeaderContainer from 'components/container/headerContainer';
 import CardContainer from 'components/container/cardContainer';
@@ -26,7 +26,7 @@ export default function Home() {
         </CardContainer>
         <section className="py-11">
           <Title text={statisticSummaryTitle} />
-          <DataSummary />
+          <StatisticSummary />
         </section>
       </MainContainer>
     </div>
