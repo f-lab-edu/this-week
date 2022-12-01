@@ -1,10 +1,8 @@
-import React from 'react';
-
 type DayOfWeek = {
   [key: number]: string;
 };
 
-const CurrentData = () => {
+const DateTitle = () => {
   const now = new Date();
 
   return (
@@ -15,7 +13,7 @@ const CurrentData = () => {
   );
 };
 
-export default CurrentData;
+export default DateTitle;
 
 const DAY_OF_WEEK: DayOfWeek = {
   0: '일요일',
