@@ -8,6 +8,7 @@ import {
   faChartPie,
   faSquareCheck,
   faKey,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 
 type Icon =
@@ -18,19 +19,21 @@ type Icon =
   | 'faBoxOpen'
   | 'faChartPie'
   | 'faSquareCheck'
-  | 'faKey';
+  | 'faKey'
+  | 'faPlus';
 type Size = '10px' | '15px' | '20px' | '25px';
+type Color = '#FFFFFF' | '#000000' | '#808080';
 
-const Icon = (props: { icon: Icon; size?: Size }) => {
-  const { icon, size = '25px' } = props;
+const Icon = (props: { icon: Icon; size?: Size; color?: Color }) => {
+  const { icon, size = '25px', color = '#808080' } = props;
 
   return (
-    <button className="flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <FontAwesomeIcon
         icon={FAICONS[icon]}
-        style={{ color: '#808080', height: size, width: size }}
+        style={{ color, height: size, width: size }}
       />
-    </button>
+    </div>
   );
 };
 
@@ -45,4 +48,5 @@ const FAICONS = {
   faChartPie,
   faSquareCheck,
   faKey,
+  faPlus,
 };

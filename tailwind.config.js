@@ -12,7 +12,9 @@ module.exports = {
         'main-pink': '#F883B8',
         'main-beige': '#FAF3F0',
         'main-beige-60': '#FAF3F099',
+        'main-blue': '#425195',
         'main-border': '#F0F0F0',
+        'main-black-40': '#00000066',
         'sub-text': '#AAAAAA',
       },
       keyframes: {
