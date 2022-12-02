@@ -1,6 +1,5 @@
 import Checkbox from '@mui/joy/Checkbox';
 import useHabitCardClick from 'customs/useHabitCardClick';
-// import Icon from 'components/icon/icon';
 
 type Props = {
   content: string;
@@ -31,7 +30,6 @@ const HabitCard = ({ content = '선택된 습관이 없습니다.' }: Props) => 
         />
         <p>{content}</p>
       </div>
-      {/* <Icon icon="faEllipsis" size="20px" /> */}
     </li>
   );
 };

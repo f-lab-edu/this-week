@@ -4,7 +4,7 @@ import Title from 'components/title/title';
 import { reviewTitle } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
 import HeaderContainer from 'components/container/headerContainer';
-import Icon from 'components/icon/icon';
+import Plus from 'components/svgs/plus.svg';
 import { useState } from 'react';
 import CreateReview from 'components/modal/createReview';
 
@@ -22,7 +22,7 @@ const Statistic = () => {
         <HeaderContainer>
           <Title text={reviewTitle} />
         </HeaderContainer>
-        <main className="py-5">
+        <main className={'py-5'}>
           <section className="pb-5">
             <h2 className="py-2 text-xl">이건 잘했어요.</h2>
             <textarea
@@ -58,7 +58,7 @@ const Statistic = () => {
               onClick={handleReviewModal}
               className="flex h-20 w-full items-center justify-center rounded-lg bg-main-border"
             >
-              <Icon icon="faPlus" color="#FFFFFF" />
+              <Plus width="25px" height="25px" fill="#FFFFFF" />
             </button>
           </div>
         </main>

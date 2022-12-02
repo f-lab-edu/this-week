@@ -2,7 +2,12 @@ import { useEffect, useRef } from 'react';
 
 import Portal from 'components/portal';
 import Blur from 'components/modal/blur';
-import Icon from 'components/icon/icon';
+import Target from 'components/svgs/target.svg';
+import BoxOpen from 'components/svgs/boxOpen.svg';
+import ChartPie from 'components/svgs/chartPie.svg';
+import SquareCheck from 'components/svgs/squareCheck.svg';
+import User from 'components/svgs/user.svg';
+import Key from 'components/svgs/key.svg';
 
 import Link from 'next/link';
 
@@ -32,7 +37,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
                 className="flex items-center gap-4"
                 onClick={() => handleClick()}
               >
-                <Icon icon="faBullseye"></Icon>
+                <Target width="25px" height="25px" fill="#808080" />
                 <button>오늘의 습관</button>
               </li>
             </Link>
@@ -41,7 +46,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
                 className="flex items-center gap-4"
                 onClick={() => handleClick()}
               >
-                <Icon icon="faBoxOpen"></Icon>
+                <BoxOpen width="25px" height="25px" fill="#808080" />
                 <button>습관 관리</button>
               </li>
             </Link>
@@ -50,7 +55,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
                 className="flex items-center gap-4"
                 onClick={() => handleClick()}
               >
-                <Icon icon="faChartPie"></Icon>
+                <ChartPie width="25px" height="25px" fill="#808080" />
                 <button>습관 데이터</button>
               </li>
             </Link>
@@ -59,7 +64,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
                 className="flex items-center gap-4"
                 onClick={() => handleClick()}
               >
-                <Icon icon="faSquareCheck"></Icon>
+                <SquareCheck width="25px" height="25px" fill="#808080" />
                 <button>회고 관리</button>
               </li>
             </Link>
@@ -68,7 +73,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
                 className="flex items-center gap-4"
                 onClick={() => handleClick()}
               >
-                <Icon icon="faUser"></Icon>
+                <User width="25px" height="25px" fill="#808080" />
                 <button>유저 정보</button>
               </li>
             </Link>
@@ -77,7 +82,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
                 className="flex items-center gap-4"
                 onClick={() => handleClick()}
               >
-                <Icon icon="faKey"></Icon>
+                <Key width="25px" height="25px" fill="#808080" />
                 <button>설정</button>
               </li>
             </Link>
