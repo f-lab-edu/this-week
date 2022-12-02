@@ -1,7 +1,7 @@
 import Navigator from 'components/navigator/navigator';
 
 import Title from 'components/title/title';
-import { reviewTitle } from 'constants/title/habitTitle';
+import { REVIEW_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
 import HeaderContainer from 'components/container/headerContainer';
 import Icon from 'components/icon/icon';
@@ -20,7 +20,7 @@ const Statistic = () => {
       <Navigator />
       <MainContainer>
         <HeaderContainer>
-          <Title text={reviewTitle} />
+          <Title text={REVIEW_TITLE} />
         </HeaderContainer>
         <main className="py-5">
           <section className="pb-5">
@@ -63,7 +63,7 @@ const Statistic = () => {
           </div>
         </main>
       </MainContainer>
-      {modalOpen && <CreateReview handleClick={handleReviewModal} />}
+      {modalOpen && <CreateReview onClick={handleReviewModal} />}
     </div>
   );
 };

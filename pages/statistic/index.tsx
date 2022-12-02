@@ -1,7 +1,7 @@
 import Navigator from 'components/navigator/navigator';
 import CurrentData from 'components/title/dateTitle';
 import Title from 'components/title/title';
-import { statisticTitle } from 'constants/title/habitTitle';
+import { STATISTIC_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
 import HeaderContainer from 'components/container/headerContainer';
 import StatisticSummary from 'components/statistic/statisticSummary';
@@ -15,7 +15,7 @@ const Statistic = () => {
       <MainContainer>
         <HeaderContainer>
           <CurrentData />
-          <Title text={statisticTitle} />
+          <Title text={STATISTIC_TITLE} />
         </HeaderContainer>
         <main className="py-5">
           <div className="pb-5 text-xl">

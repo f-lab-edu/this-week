@@ -8,12 +8,12 @@ import useOutsideClick from 'customs/useOutsideClick';
 import CreateButton from 'components/button/createButton';
 import DayCheckButton from 'components/button/dayCheckButton';
 
-import { HandleClickProps } from 'types/props';
+import { OnClickProps } from 'types/props';
 
 type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
-const CreateHabit = ({ handleClick }: HandleClickProps) => {
-  const modalRef = useRef<HTMLDivElement | null>(null);
+const CreateHabit = ({ onClick }: OnClickProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
   const { clicked } = useOutsideClick(modalRef);
   const [habitName, setHabitName] = useState<string>('');
   const [dayChecked, setDayChecked] = useState({
@@ -27,7 +27,7 @@ const CreateHabit = ({ handleClick }: HandleClickProps) => {
   });
 
   useEffect(() => {
-    if (clicked) handleClick();
+    if (clicked) onClick();
   }, [clicked]);
 
   const handleDayCheck = (dayOfWeek: DayOfWeek) => {
@@ -56,45 +56,45 @@ const CreateHabit = ({ handleClick }: HandleClickProps) => {
                 <DayCheckButton
                   dayOfWeek="sun"
                   checked={dayChecked.sun}
-                  handleClick={() => handleDayCheck('sun')}
+                  onClick={() => handleDayCheck('sun')}
                 ></DayCheckButton>
                 <DayCheckButton
                   dayOfWeek="mon"
                   checked={dayChecked.mon}
-                  handleClick={() => handleDayCheck('mon')}
+                  onClick={() => handleDayCheck('mon')}
                 ></DayCheckButton>
                 <DayCheckButton
                   dayOfWeek="tue"
                   checked={dayChecked.tue}
-                  handleClick={() => handleDayCheck('tue')}
+                  onClick={() => handleDayCheck('tue')}
                 ></DayCheckButton>
                 <DayCheckButton
                   dayOfWeek="wed"
                   checked={dayChecked.wed}
-                  handleClick={() => handleDayCheck('wed')}
+                  onClick={() => handleDayCheck('wed')}
                 ></DayCheckButton>
                 <DayCheckButton
                   dayOfWeek="thu"
                   checked={dayChecked.thu}
-                  handleClick={() => handleDayCheck('thu')}
+                  onClick={() => handleDayCheck('thu')}
                 ></DayCheckButton>
                 <DayCheckButton
                   dayOfWeek="fri"
                   checked={dayChecked.fri}
-                  handleClick={() => handleDayCheck('fri')}
+                  onClick={() => handleDayCheck('fri')}
                 ></DayCheckButton>
                 <DayCheckButton
                   dayOfWeek="sat"
                   checked={dayChecked.sat}
-                  handleClick={() => handleDayCheck('sat')}
+                  onClick={() => handleDayCheck('sat')}
                 ></DayCheckButton>
               </div>
             </div>
             <CreateButton
               text="습관 추가하기"
-              handleClick={() => {
+              onClick={() => {
                 console.log('create habit!');
-                handleClick();
+                onClick();
               }}
             />
           </div>

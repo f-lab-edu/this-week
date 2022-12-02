@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, MouseEvent, RefObject } from 'react';
 
-const useOutsideClick = (ref: any) => {
+const useOutsideClick = (ref: RefObject<HTMLElement>) => {
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
-    const handleClick = (e: any) => {
-      if (ref.current && !ref.current.contains(e.target)) {
+    const onClick = (e: Event) => {
+      if (ref.current && !ref.current.contains(e.target as HTMLElement)) {
         setClicked(true);
       }
     };
 
-    document.addEventListener('mousedown', handleClick);
+    document.addEventListener('mousedown', onClick);
     return () => {
-      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('mousedown', onClick);
     };
   }, [ref]);
 
