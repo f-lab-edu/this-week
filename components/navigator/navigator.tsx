@@ -12,9 +12,7 @@ const Navigator = () => {
         <Icon icon="faBars"></Icon>
       </div>
       <Icon icon="faUser"></Icon>
-      {modal && (
-        <SideTap handleClick={() => setModal((prev) => !prev)}></SideTap>
-      )}
+      {modal && <SideTap onClick={() => setModal((prev) => !prev)}></SideTap>}
     </nav>
   );
 };

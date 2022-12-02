@@ -4,6 +4,6 @@ export type ChildrenProps = {
   children: ReactNode;
 };
 
-export type HandleClickProps = {
-  handleClick(): void;
+export type OnClickProps = {
+  onClick(): void;
 };

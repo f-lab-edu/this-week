@@ -1,7 +1,7 @@
 import Navigator from 'components/navigator/navigator';
 import CurrentData from 'components/title/dateTitle';
 import Title from 'components/title/title';
-import { habitTitle } from 'constants/title/habitTitle';
+import { HABIT_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
 import HeaderContainer from 'components/container/headerContainer';
 import CardContainer from 'components/container/cardContainer';
@@ -24,7 +24,7 @@ const Habit = () => {
       <MainContainer>
         <HeaderContainer>
           <CurrentData />
-          <Title text={habitTitle} />
+          <Title text={HABIT_TITLE} />
         </HeaderContainer>
         <CardContainer>
           <HabitCard content="영어공부 30분" />
@@ -33,12 +33,10 @@ const Habit = () => {
         </CardContainer>
         <BottomFixedContainer>
           <div className="flex h-24 w-full items-center">
-            <CreateButton handleClick={handleBottomModal} />
+            <CreateButton onClick={handleBottomModal} />
           </div>
         </BottomFixedContainer>
-        {modalOpen && (
-          <CreateHabit handleClick={handleBottomModal}></CreateHabit>
-        )}
+        {modalOpen && <CreateHabit onClick={handleBottomModal}></CreateHabit>}
       </MainContainer>
     </div>
   );
