@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { ChildrenProps } from 'types/props';
 
-const CardContainer = ({ children }: { children: ReactNode }) => {
+const CardContainer = ({ children }: ChildrenProps) => {
   return (
     <main>
       <ul className="flex flex-col gap-2.5 py-6">{children}</ul>

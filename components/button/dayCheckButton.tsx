@@ -1,13 +1,13 @@
 import React from 'react';
+import { HandleClickProps } from 'types/props';
 
 type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
-
-const DayCheckButton = (props: {
+type Props = HandleClickProps & {
   checked: boolean;
-  handleClick(): void;
   dayOfWeek: DayOfWeek;
-}) => {
-  const { checked, handleClick, dayOfWeek } = props;
+};
+
+const DayCheckButton = ({ checked, handleClick, dayOfWeek }: Props) => {
   return (
     <button
       role="checkbox"

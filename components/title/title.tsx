@@ -3,12 +3,15 @@ import React from 'react';
 type TextTemplate = {
   [k: number]: string;
 };
+type Props = {
+  text: TextTemplate;
+};
 
-const Title = ({ text }: { text: TextTemplate }) => {
+const Title = ({ text }: Props) => {
   return (
-    <div className="text-2xl font-semibold">
+    <h1 className="text-2xl font-semibold">
       <pre className="whitespace-pre-line">{text[0]}</pre>
-    </div>
+    </h1>
   );
 };
 

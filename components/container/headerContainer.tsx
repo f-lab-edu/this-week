@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { ChildrenProps } from 'types/props';
 
-const HeaderContainer = ({ children }: { children: ReactNode }) => {
+const HeaderContainer = ({ children }: ChildrenProps) => {
   return <header className="flex flex-col gap-5">{children}</header>;
 };
 

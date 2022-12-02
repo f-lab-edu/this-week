@@ -1,10 +1,12 @@
 import Icon from 'components/icon/icon';
 
-type Text = '습관 생성하기' | '습관 추가하기';
+type Text = '습관 생성하기' | '습관 추가하기' | '회고 추가하기';
+type Props = {
+  text?: Text;
+  handleClick?: () => void;
+};
 
-const CreateButton = (props: { text?: Text; handleClick(): void }) => {
-  const { text = '습관 생성하기', handleClick } = props;
-
+const CreateButton = ({ text = '습관 생성하기', handleClick }: Props) => {
   return (
     <button
       className="flex h-14 w-full items-center justify-center gap-2 rounded-lg bg-main-blue text-white"
