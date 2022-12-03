@@ -2,7 +2,12 @@ import { useEffect, useRef } from 'react';
 
 import Portal from 'components/portal';
 import Blur from 'components/modal/blur';
-import Icon from 'components/icon/icon';
+import Target from 'components/svgs/target.svg';
+import BoxOpen from 'components/svgs/boxOpen.svg';
+import ChartPie from 'components/svgs/chartPie.svg';
+import SquareCheck from 'components/svgs/squareCheck.svg';
+import User from 'components/svgs/user.svg';
+import Key from 'components/svgs/key.svg';
 
 import Link from 'next/link';
 
@@ -28,38 +33,56 @@ const SideTap = ({ onClick }: OnClickProps) => {
           <h1 className="text-3xl font-bold">디스위크</h1>
           <ul className="flex flex-col gap-4 text-xl">
             <Link href={`/`}>
-              <li className="flex items-center gap-4" onClick={() => onClick()}>
-                <Icon icon="faBullseye"></Icon>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => onClick()}
+              >
+                <Target width="25px" height="25px" fill="#808080" />
                 <button>오늘의 습관</button>
               </li>
             </Link>
             <Link href={`/manage/habit`}>
-              <li className="flex items-center gap-4" onClick={() => onClick()}>
-                <Icon icon="faBoxOpen"></Icon>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => onClick()}
+              >
+                <BoxOpen width="25px" height="25px" fill="#808080" />
                 <button>습관 관리</button>
               </li>
             </Link>
             <Link href={`/statistic`}>
-              <li className="flex items-center gap-4" onClick={() => onClick()}>
-                <Icon icon="faChartPie"></Icon>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => onClick()}
+              >
+                <ChartPie width="25px" height="25px" fill="#808080" />
                 <button>습관 데이터</button>
               </li>
             </Link>
             <Link href={`/manage/review`}>
-              <li className="flex items-center gap-4" onClick={() => onClick()}>
-                <Icon icon="faSquareCheck"></Icon>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => onClick()}
+              >
+                <SquareCheck width="25px" height="25px" fill="#808080" />
                 <button>회고 관리</button>
               </li>
             </Link>
             <Link href={`/user`}>
-              <li className="flex items-center gap-4" onClick={() => onClick()}>
-                <Icon icon="faUser"></Icon>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => onClick()}
+              >
+                <User width="25px" height="25px" fill="#808080" />
                 <button>유저 정보</button>
               </li>
             </Link>
             <Link href={`/setting`}>
-              <li className="flex items-center gap-4" onClick={() => onClick()}>
-                <Icon icon="faKey"></Icon>
+              <li
+                className="flex items-center gap-4"
+                onClick={() => onClick()}
+              >
+                <Key width="25px" height="25px" fill="#808080" />
                 <button>설정</button>
               </li>
             </Link>

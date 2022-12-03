@@ -1,4 +1,4 @@
-import Icon from 'components/icon/icon';
+import Plus from 'components/svgs/plus.svg';
 
 type Text = '습관 생성하기' | '습관 추가하기' | '회고 추가하기';
 type Props = {
@@ -13,7 +13,7 @@ const CreateButton = ({ text = '습관 생성하기', onClick }: Props) => {
       onClick={onClick}
     >
       <div className="flex h-6 w-6 items-center justify-center rounded-full bg-main-black-40">
-        <Icon icon="faPlus" color="#FFFFFF" size="15px" />
+        <Plus width="25px" height="25px" fill="#808080" />
       </div>
       <p>{text}</p>
     </button>
