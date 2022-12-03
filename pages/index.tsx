@@ -6,8 +6,8 @@ import StatisticSummary from 'components/statistic/statisticSummary';
 import MainContainer from 'components/container/mainContainer';
 import HeaderContainer from 'components/container/headerContainer';
 import CardContainer from 'components/container/cardContainer';
-import motivationTitle, {
-  statisticSummaryTitle,
+import MOTIVATION_TITLE, {
+  STATISTIC_SUMMARY_TITLE,
 } from 'constants/title/habitTitle';
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
       <MainContainer>
         <HeaderContainer>
           <CurrentData />
-          <Title text={motivationTitle} />
+          <Title text={MOTIVATION_TITLE} />
         </HeaderContainer>
         <CardContainer>
           <HabitCard content="영어공부 30분" />
@@ -25,7 +25,7 @@ export default function Home() {
           <HabitCard content="영양제 챙겨먹기" />
         </CardContainer>
         <section className="py-11">
-          <Title text={statisticSummaryTitle} />
+          <Title text={STATISTIC_SUMMARY_TITLE} />
           <StatisticSummary />
         </section>
       </MainContainer>

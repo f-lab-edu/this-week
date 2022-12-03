@@ -13,14 +13,14 @@ import Link from 'next/link';
 
 import useOutsideClick from 'customs/useOutsideClick';
 
-import { HandleClickProps } from 'types/props';
+import { OnClickProps } from 'types/props';
 
-const SideTap = ({ handleClick }: HandleClickProps) => {
-  const modalRef = useRef<HTMLDivElement | null>(null);
+const SideTap = ({ onClick }: OnClickProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
   const { clicked } = useOutsideClick(modalRef);
 
   useEffect(() => {
-    if (clicked) handleClick();
+    if (clicked) onClick();
   }, [clicked]);
 
   return (
@@ -33,55 +33,37 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
           <h1 className="text-3xl font-bold">디스위크</h1>
           <ul className="flex flex-col gap-4 text-xl">
             <Link href={`/`}>
-              <li
-                className="flex items-center gap-4"
-                onClick={() => handleClick()}
-              >
+              <li className="flex items-center gap-4" onClick={() => onClick()}>
                 <Target width="25px" height="25px" fill="#808080" />
                 <button>오늘의 습관</button>
               </li>
             </Link>
             <Link href={`/manage/habit`}>
-              <li
-                className="flex items-center gap-4"
-                onClick={() => handleClick()}
-              >
+              <li className="flex items-center gap-4" onClick={() => onClick()}>
                 <BoxOpen width="25px" height="25px" fill="#808080" />
                 <button>습관 관리</button>
               </li>
             </Link>
             <Link href={`/statistic`}>
-              <li
-                className="flex items-center gap-4"
-                onClick={() => handleClick()}
-              >
+              <li className="flex items-center gap-4" onClick={() => onClick()}>
                 <ChartPie width="25px" height="25px" fill="#808080" />
                 <button>습관 데이터</button>
               </li>
             </Link>
             <Link href={`/manage/review`}>
-              <li
-                className="flex items-center gap-4"
-                onClick={() => handleClick()}
-              >
+              <li className="flex items-center gap-4" onClick={() => onClick()}>
                 <SquareCheck width="25px" height="25px" fill="#808080" />
                 <button>회고 관리</button>
               </li>
             </Link>
             <Link href={`/user`}>
-              <li
-                className="flex items-center gap-4"
-                onClick={() => handleClick()}
-              >
+              <li className="flex items-center gap-4" onClick={() => onClick()}>
                 <User width="25px" height="25px" fill="#808080" />
                 <button>유저 정보</button>
               </li>
             </Link>
             <Link href={`/setting`}>
-              <li
-                className="flex items-center gap-4"
-                onClick={() => handleClick()}
-              >
+              <li className="flex items-center gap-4" onClick={() => onClick()}>
                 <Key width="25px" height="25px" fill="#808080" />
                 <button>설정</button>
               </li>

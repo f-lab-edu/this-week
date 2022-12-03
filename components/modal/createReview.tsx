@@ -7,14 +7,14 @@ import CreateButton from 'components/button/createButton';
 
 import useOutsideClick from 'customs/useOutsideClick';
 
-import { HandleClickProps } from 'types/props';
+import { OnClickProps } from 'types/props';
 
-const CreateReview = ({ handleClick }: HandleClickProps) => {
-  const modalRef = useRef<HTMLDivElement | null>(null);
+const CreateReview = ({ onClick }: OnClickProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
   const { clicked } = useOutsideClick(modalRef);
 
   useEffect(() => {
-    if (clicked) handleClick();
+    if (clicked) onClick();
   }, [clicked]);
 
   return (

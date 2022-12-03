@@ -1,18 +1,18 @@
 import React from 'react';
-import { HandleClickProps } from 'types/props';
+import { onClickProps } from 'types/props';
 
 type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
-type Props = HandleClickProps & {
+type Props = onClickProps & {
   checked: boolean;
   dayOfWeek: DayOfWeek;
 };
 
-const DayCheckButton = ({ checked, handleClick, dayOfWeek }: Props) => {
+const DayCheckButton = ({ checked, onClick, dayOfWeek }: Props) => {
   return (
     <button
       role="checkbox"
       className="flex flex-col items-center gap-1"
-      onClick={handleClick}
+      onClick={onClick}
     >
       <p className="text-sm text-sub-text">{dayOfWeek[0].toUpperCase()}</p>
       <div

@@ -1,7 +1,7 @@
 import Navigator from 'components/navigator/navigator';
 
 import Title from 'components/title/title';
-import { userTitle } from 'constants/title/habitTitle';
+import { USER_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
 import HeaderContainer from 'components/container/headerContainer';
 
@@ -11,7 +11,7 @@ const User = () => {
       <Navigator />
       <MainContainer>
         <HeaderContainer>
-          <Title text={userTitle} />
+          <Title text={USER_TITLE} />
         </HeaderContainer>
       </MainContainer>
     </>

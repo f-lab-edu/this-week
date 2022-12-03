@@ -38,9 +38,7 @@ const Navigator = () => {
       <div className="lg:">
         <User width="25px" height="25px" fill="#000000" />
       </div>
-      {modal && (
-        <SideTap handleClick={() => setModal((prev) => !prev)}></SideTap>
-      )}
+      {modal && <SideTap onClick={() => setModal((prev) => !prev)}></SideTap>}
     </nav>
   );
 };
