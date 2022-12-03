@@ -13,14 +13,14 @@ import Link from 'next/link';
 
 import useOutsideClick from 'customs/useOutsideClick';
 
-import { HandleClickProps } from 'types/props';
+import { OnClickProps } from 'types/props';
 
-const SideTap = ({ handleClick }: HandleClickProps) => {
-  const modalRef = useRef<HTMLDivElement | null>(null);
+const SideTap = ({ onClick }: OnClickProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
   const { clicked } = useOutsideClick(modalRef);
 
   useEffect(() => {
-    if (clicked) handleClick();
+    if (clicked) onClick();
   }, [clicked]);
 
   return (
@@ -35,7 +35,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
             <Link href={`/`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => handleClick()}
+                onClick={() => onClick()}
               >
                 <Target width="25px" height="25px" fill="#808080" />
                 <button>오늘의 습관</button>
@@ -44,7 +44,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
             <Link href={`/manage/habit`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => handleClick()}
+                onClick={() => onClick()}
               >
                 <BoxOpen width="25px" height="25px" fill="#808080" />
                 <button>습관 관리</button>
@@ -53,7 +53,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
             <Link href={`/statistic`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => handleClick()}
+                onClick={() => onClick()}
               >
                 <ChartPie width="25px" height="25px" fill="#808080" />
                 <button>습관 데이터</button>
@@ -62,7 +62,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
             <Link href={`/manage/review`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => handleClick()}
+                onClick={() => onClick()}
               >
                 <SquareCheck width="25px" height="25px" fill="#808080" />
                 <button>회고 관리</button>
@@ -71,7 +71,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
             <Link href={`/user`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => handleClick()}
+                onClick={() => onClick()}
               >
                 <User width="25px" height="25px" fill="#808080" />
                 <button>유저 정보</button>
@@ -80,7 +80,7 @@ const SideTap = ({ handleClick }: HandleClickProps) => {
             <Link href={`/setting`}>
               <li
                 className="flex items-center gap-4"
-                onClick={() => handleClick()}
+                onClick={() => onClick()}
               >
                 <Key width="25px" height="25px" fill="#808080" />
                 <button>설정</button>

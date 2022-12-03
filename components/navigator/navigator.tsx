@@ -13,9 +13,7 @@ const Navigator = () => {
         <Bars width="25px" height="25px" fill="#808080" />
       </button>
       <User width="25px" height="25px" fill="#808080" />
-      {modal && (
-        <SideTap handleClick={() => setModal((prev) => !prev)}></SideTap>
-      )}
+      {modal && <SideTap onClick={() => setModal((prev) => !prev)}></SideTap>}
     </nav>
   );
 };
