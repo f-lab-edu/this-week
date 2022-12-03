@@ -1,16 +1,15 @@
 import React from 'react';
 
-type TextTemplate = {
-  [k: number]: string;
-};
 type Props = {
-  text: TextTemplate;
+  text: string;
+  size?: 'lg' | 'xl' | '2xl' | '3xl';
+  bold?: 'medium' | 'semibold';
 };
 
-const Title = ({ text }: Props) => {
+const Title = ({ text, size = '2xl', bold = 'semibold' }: Props) => {
   return (
-    <h1 className="text-2xl font-semibold">
-      <pre className="whitespace-pre-line">{text[0]}</pre>
+    <h1 className={`text-${size} font-${bold}`}>
+      <pre className="whitespace-pre-line">{text}</pre>
     </h1>
   );
 };

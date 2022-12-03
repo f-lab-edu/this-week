@@ -7,15 +7,17 @@ import HeaderContainer from 'components/container/headerContainer';
 import StatisticSummary from 'components/statistic/statisticSummary';
 import WeekActivity from 'components/statistic/weekActivity';
 import HabitTable from 'components/statistic/habitTable';
+import useWindowSize from 'customs/useWindowSize';
 
 const Statistic = () => {
+  const { type } = useWindowSize();
   return (
     <div className="min-h-screen">
       <Navigator />
       <MainContainer>
         <HeaderContainer>
           <CurrentData />
-          <Title text={STATISTIC_TITLE} />
+          <Title text={STATISTIC_TITLE[type]} />
         </HeaderContainer>
         <main className="py-5">
           <div className="pb-5 text-xl">

@@ -7,8 +7,10 @@ import HeaderContainer from 'components/container/headerContainer';
 import Plus from 'components/svgs/plus.svg';
 import { useState } from 'react';
 import CreateReview from 'components/modal/createReview';
+import useWindowSize from 'customs/useWindowSize';
 
 const Statistic = () => {
+  const { type } = useWindowSize();
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleReviewModal = () => {
@@ -20,7 +22,7 @@ const Statistic = () => {
       <Navigator />
       <MainContainer>
         <HeaderContainer>
-          <Title text={REVIEW_TITLE} />
+          <Title text={REVIEW_TITLE[type]} />
         </HeaderContainer>
         <main className={'py-5'}>
           <section className="pb-5">
