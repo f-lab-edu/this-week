@@ -9,6 +9,7 @@ import MOTIVATION_TITLE, {
   STATISTIC_SUMMARY_TITLE,
 } from 'constants/title/habitTitle';
 import useWindowSize from 'customs/useWindowSize';
+import StatisticSummaryText from 'components/main/statisticSummaryText';
 
 export default function Home() {
   const { type } = useWindowSize();
@@ -30,7 +31,7 @@ export default function Home() {
               </CardContainer>
             </div>
           </div>
-          <div className="fixed top-28 right-12 bottom-0 hidden h-3/4 w-100 rounded-lg bg-white shadow-3xl lg:block">
+          <div className="col-span-1 hidden rounded-lg bg-white shadow-3xl lg:block">
             <div className="w-full px-5 py-6">
               <div className="flex flex-col gap-4">
                 <p className="text-2xl font-semibold">습관 데이터 요약</p>
@@ -39,6 +40,23 @@ export default function Home() {
                   size="lg"
                   bold="medium"
                 />
+              </div>
+              <div className="flex flex-col py-5">
+                <StatisticSummaryText>
+                  <StatisticSummaryText.ThisWeekDone />
+                  <StatisticSummaryText.LastWeekDone />
+                  <StatisticSummaryText.ThisWeekAchivementRate />
+                  <StatisticSummaryText.LastWeekAchivementRate />
+                </StatisticSummaryText>
+              </div>
+              <div className="flex justify-center py-5">
+                <div className="flex h-48 w-48 items-center justify-center rounded-full border border-black">
+                  <p className="text-2xl">78%</p>
+                </div>
+              </div>
+              <div>
+                <p className="text-lg">이번주</p>
+                <div className="h-24 border">Chart Section</div>
               </div>
             </div>
           </div>
