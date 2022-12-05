@@ -17,7 +17,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navigator />
       <MainContainer>
-        <div className="pb-5">
+        <div className="pb-10">
           <CurrentData />
         </div>
         <div className="lg:grid lg:grid-cols-3 lg:gap-4">

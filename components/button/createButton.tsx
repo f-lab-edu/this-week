@@ -13,7 +13,7 @@ const CreateButton = ({ text = '습관 생성하기', onClick }: Props) => {
       onClick={onClick}
     >
       <div className="flex h-6 w-6 items-center justify-center rounded-full bg-main-black-40">
-        <Plus width="25px" height="25px" fill="#808080" />
+        <Plus width="15px" height="15px" fill="#FFFFFF" />
       </div>
       <p>{text}</p>
     </button>

@@ -10,7 +10,7 @@ const HabitCard = ({ content = '선택된 습관이 없습니다.' }: Props) => 
 
   return (
     <li
-      className={`flex h-10 items-center justify-between rounded-lg bg-main-beige px-3.5 lg:h-12 lg:w-100 ${
+      className={`flex h-10 items-center justify-between rounded-lg bg-main-beige px-3.5 lg:h-12 lg:w-120 ${
         checked ? 'line-through opacity-40' : ''
       }`}
       {...method}
