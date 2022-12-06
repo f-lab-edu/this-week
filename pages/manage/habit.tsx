@@ -7,23 +7,18 @@ import CardContainer from 'components/container/cardContainer';
 import HabitCard from 'components/card/habitCard';
 import BottomFixedContainer from 'components/container/bottomFixedContainer';
 import CreateButton from 'components/button/createButton';
-import { useState } from 'react';
 import CreateHabit from 'components/modal/createHabit';
 import useWindowSize from 'customs/useWindowSize';
 import Pencel from 'components/svgs/pencel.svg';
+import useModal from 'customs/useModal';
+import Modal from 'components/modal/modal';
 
 const Habit = () => {
-  // Todo: 효율적인 모달 관리 필요
-  const [modalOpen, setModalOpen] = useState(false);
-  const [desktopModalOpen, setDesktopModalOpen] = useState(false);
+  const { openModal } = useModal();
   const { type } = useWindowSize();
 
-  const handleBottomModal = () => {
-    setModalOpen((prev) => !prev);
-  };
-
-  const handleDesktopModal = () => {
-    setDesktopModalOpen((prev) => !prev);
+  const handleModal = () => {
+    openModal(CreateHabit, {});
   };
 
   return (
@@ -38,7 +33,7 @@ const Habit = () => {
             <Title text={HABIT_TITLE[type]} />
             <div className="hidden lg:block">
               <div className="flex justify-end pt-2">
-                <button onClick={handleDesktopModal}>
+                <button onClick={handleModal}>
                   <Pencel width="25px" fill="#808080" />
                 </button>
               </div>
@@ -53,14 +48,12 @@ const Habit = () => {
         <div className="lg:hidden">
           <BottomFixedContainer>
             <div className="flex h-24 w-full items-center">
-              <CreateButton onClick={handleBottomModal} />
+              <CreateButton onClick={handleModal} />
             </div>
           </BottomFixedContainer>
         </div>
-        {/* Todo: 수정 필요 */}
-        {modalOpen && <CreateHabit onClick={handleBottomModal} />}
-        {desktopModalOpen && <CreateHabit onClick={handleDesktopModal} />}
       </MainContainer>
+      <Modal />
     </div>
   );
 };
