@@ -5,9 +5,9 @@ import { HABIT_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
 import CardContainer from 'components/container/cardContainer';
 import HabitCard from 'components/card/habitCard';
-import BottomFixedContainer from 'components/container/bottomFixedContainer';
+import BottomFixedContainer from 'components/container/bottomSheetContainer';
 import CreateButton from 'components/button/createButton';
-import CreateHabit from 'components/modal/createHabit';
+import CreateHabit from 'components/modal/createHabitModal';
 import useWindowSize from 'customs/useWindowSize';
 import Pencel from 'components/svgs/pencel.svg';
 import useModal from 'customs/useModal';
@@ -18,7 +18,7 @@ const Habit = () => {
   const { type } = useWindowSize();
 
   const handleModal = () => {
-    openModal(CreateHabit, {});
+    openModal({ element: <CreateHabit />, props: {} });
   };
 
   return (

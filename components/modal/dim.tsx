@@ -1,6 +1,6 @@
 import { ChildrenProps } from 'types/props';
 
-const Blur = ({ children }: ChildrenProps) => {
+const Dim = ({ children }: ChildrenProps) => {
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 z-30 h-full animate-toggle bg-black bg-opacity-75">
       {children}
@@ -8,4 +8,4 @@ const Blur = ({ children }: ChildrenProps) => {
   );
 };
 
-export default Blur;
+export default Dim;

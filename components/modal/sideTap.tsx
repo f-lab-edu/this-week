@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 import Portal from 'components/portal';
-import Blur from 'components/modal/blur';
+import Blur from 'components/modal/dim';
 import Target from 'components/svgs/target.svg';
 import BoxOpen from 'components/svgs/boxOpen.svg';
 import ChartPie from 'components/svgs/chartPie.svg';

@@ -1,13 +1,24 @@
 import React, { useState, createContext, ReactElement } from 'react';
 
 type ModalProviderProps = {
-  children: ReactElement | ReactElement[];
+  children: ReactElement;
 };
 
-export const ModalDispatchContext = createContext<{
-  open: (Component: ReactElement, props: { [key: string]: unknown }) => void;
-  close: (Component: ReactElement) => void;
-}>({
+type ModalStateType = {
+  element: ReactElement;
+  props: { [key: string]: unknown };
+};
+
+type ModalCloseType = {
+  element: ReactElement;
+};
+
+type ModalDispatchContextType = {
+  open: ({ element, props }: ModalStateType) => void;
+  close: ({ element }: ModalCloseType) => void;
+};
+
+export const ModalDispatchContext = createContext<ModalDispatchContextType>({
   open: () => {
     return;
   },
@@ -16,26 +27,17 @@ export const ModalDispatchContext = createContext<{
   },
 });
 
-type ModalStateType = {
-  Component: ReactElement;
-  props: { [key: string]: unknown };
-};
-
-export const ModalStateContext = createContext<ModalStateType[]>([]);
+export const ModalStateContext = createContext<ModalStateType | null>(null);
 
 const ModalProvider = ({ children }: ModalProviderProps) => {
-  const [openedModal, setOpenedModal] = useState<ModalStateType[]>([]);
+  const [openedModal, setOpenedModal] = useState<ModalStateType | null>(null);
 
-  const open = (Component: ReactElement, props: { [key: string]: unknown }) => {
-    setOpenedModal((modal) => {
-      return [...modal, { Component, props }];
-    });
+  const open = ({ element, props }: ModalStateType) => {
+    setOpenedModal({ element, props });
   };
 
-  const close = (Component: ReactElement) => {
-    setOpenedModal((modal) => {
-      return modal.filter((modal) => modal.Component !== Component);
-    });
+  const close = () => {
+    setOpenedModal(null);
   };
 
   const dispatch = { open, close };
