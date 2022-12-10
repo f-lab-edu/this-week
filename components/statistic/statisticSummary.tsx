@@ -1,19 +1,37 @@
+import Title from 'components/title/title';
+import { STATISTIC_SUMMARY_TITLE } from 'constants/title/habitTitle';
+import StatisticSummaryText from 'components/main/statisticSummaryText';
+
+import useWindowSize from 'customs/useWindowSize';
+
 const StatisticSummary = () => {
+  const { type } = useWindowSize();
   return (
-    <article className="grid-rows-7 grid h-96 w-full grid-cols-2 gap-2 text-lg lg:h-full">
-      <div className="row-span-3 rounded-2xl bg-main-beige p-5">
-        <p>완료개수</p>
+    <>
+      <div className="w-full px-5 py-6">
+        <div className="flex flex-col gap-4">
+          <p className="text-2xl font-semibold">습관 데이터 요약</p>
+          <Title text={STATISTIC_SUMMARY_TITLE[type]} size="lg" bold="medium" />
+        </div>
+        <div className="flex flex-col py-5">
+          <StatisticSummaryText>
+            <StatisticSummaryText.ThisWeekDone />
+            <StatisticSummaryText.LastWeekDone />
+            <StatisticSummaryText.ThisWeekAchivementRate />
+            <StatisticSummaryText.LastWeekAchivementRate />
+          </StatisticSummaryText>
+        </div>
+        <div className="flex justify-center py-5">
+          <div className="flex h-48 w-48 items-center justify-center rounded-full border border-black">
+            <p className="text-2xl">78%</p>
+          </div>
+        </div>
+        <div>
+          <p className="text-lg">이번주</p>
+          <div className="h-24 border">Chart Section</div>
+        </div>
       </div>
-      <div className="row-span-4 rounded-2xl bg-main-red p-5 text-white">
-        <p>완료율</p>
-      </div>
-      <div className="row-span-4 rounded-2xl bg-main-pink p-5 text-white">
-        <p>미완료율</p>
-      </div>
-      <div className="row-span-3 rounded-2xl bg-main-beige p-5">
-        <p>지난주 완료개수</p>
-      </div>
-    </article>
+    </>
   );
 };
 
