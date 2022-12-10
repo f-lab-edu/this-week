@@ -106,10 +106,8 @@ const StatisticSummaryContainer = ({ children }: ChildrenProps) => {
     <div className="flex flex-col gap-5">
       {thisWeekDone && thisWeekDone}
       {lastWeekDone && lastWeekDone}
-      <div className="flex justify-between">
-        {thisWeekAchivementRate && thisWeekAchivementRate}
-        {lastWeekAchivementRate && lastWeekAchivementRate}
-      </div>
+      {thisWeekAchivementRate && thisWeekAchivementRate}
+      {lastWeekAchivementRate && lastWeekAchivementRate}
     </div>
   );
 };
