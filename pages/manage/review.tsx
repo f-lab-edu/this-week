@@ -5,16 +5,18 @@ import { REVIEW_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
 import HeaderContainer from 'components/container/headerContainer';
 import Plus from 'components/svgs/plus.svg';
-import { useState } from 'react';
+
 import CreateReview from 'components/modal/createReview';
 import useWindowSize from 'customs/useWindowSize';
+import Modal from 'components/modal/modal';
+import useModal from 'customs/useModal';
 
 const Statistic = () => {
   const { type } = useWindowSize();
-  const [modalOpen, setModalOpen] = useState(false);
+  const { openModal } = useModal();
 
-  const handleReviewModal = () => {
-    setModalOpen((prev) => !prev);
+  const handleModal = () => {
+    openModal({ element: <CreateReview />, props: {} });
   };
 
   return (
@@ -57,7 +59,7 @@ const Statistic = () => {
           </section>
           <div className="py-5">
             <button
-              onClick={handleReviewModal}
+              onClick={handleModal}
               className="flex h-20 w-full items-center justify-center rounded-lg bg-main-border"
             >
               <Plus width="25px" height="25px" fill="#FFFFFF" />
@@ -65,7 +67,7 @@ const Statistic = () => {
           </div>
         </main>
       </MainContainer>
-      {modalOpen && <CreateReview onClick={handleReviewModal} />}
+      <Modal />
     </div>
   );
 };

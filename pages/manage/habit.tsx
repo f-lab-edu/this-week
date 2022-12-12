@@ -3,43 +3,57 @@ import CurrentData from 'components/title/dateTitle';
 import Title from 'components/title/title';
 import { HABIT_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
-import HeaderContainer from 'components/container/headerContainer';
 import CardContainer from 'components/container/cardContainer';
 import HabitCard from 'components/card/habitCard';
-import BottomFixedContainer from 'components/container/bottomFixedContainer';
+import BottomFixedContainer from 'components/container/bottomSheetContainer';
 import CreateButton from 'components/button/createButton';
-import { useState } from 'react';
-import CreateHabit from 'components/modal/createHabit';
+import CreateHabit from 'components/modal/createHabitModal';
 import useWindowSize from 'customs/useWindowSize';
+import Pencel from 'components/svgs/pencel.svg';
+import useModal from 'customs/useModal';
+import Modal from 'components/modal/modal';
 
 const Habit = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const { openModal } = useModal();
   const { type } = useWindowSize();
 
-  const handleBottomModal = () => {
-    setModalOpen((prev) => !prev);
+  const handleModal = () => {
+    openModal({ element: <CreateHabit />, props: {} });
   };
 
   return (
     <div className="min-h-screen">
       <Navigator />
       <MainContainer>
-        <HeaderContainer>
+        <div className="pb-10">
           <CurrentData />
-          <Title text={HABIT_TITLE[type]} />
-        </HeaderContainer>
-        <CardContainer>
-          <HabitCard content="영어공부 30분" />
-          <HabitCard content="코딩테스트 1문제" />
-          <HabitCard content="영양제 챙겨먹기" />
-        </CardContainer>
-        <BottomFixedContainer>
-          <div className="flex h-24 w-full items-center">
-            <CreateButton onClick={handleBottomModal} />
+        </div>
+        <div className="lg:flex lg:flex-col lg:items-center">
+          <div>
+            <Title text={HABIT_TITLE[type]} />
+            <div className="hidden lg:block">
+              <div className="flex justify-end pt-2">
+                <button onClick={handleModal}>
+                  <Pencel width="25px" fill="#808080" />
+                </button>
+              </div>
+            </div>
+            <CardContainer>
+              <HabitCard content="영어공부 30분" />
+              <HabitCard content="코딩테스트 1문제" />
+              <HabitCard content="영양제 챙겨먹기" />
+            </CardContainer>
           </div>
-        </BottomFixedContainer>
-        {modalOpen && <CreateHabit onClick={handleBottomModal}></CreateHabit>}
+        </div>
+        <div className="lg:hidden">
+          <BottomFixedContainer>
+            <div className="flex h-24 w-full items-center">
+              <CreateButton onClick={handleModal} />
+            </div>
+          </BottomFixedContainer>
+        </div>
       </MainContainer>
+      <Modal />
     </div>
   );
 };
