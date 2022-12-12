@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Navigator from 'components/navigator/navigator';
 import CurrentData from 'components/title/dateTitle';
 import Title from 'components/title/title';
@@ -12,14 +13,31 @@ import useWindowSize from 'customs/useWindowSize';
 import Pencel from 'components/svgs/pencel.svg';
 import useModal from 'customs/useModal';
 import Modal from 'components/modal/modal';
+import axios from 'axios';
+
+type Habits = {
+  habit: string;
+  _id: number;
+};
 
 const Habit = () => {
   const { openModal } = useModal();
   const { type } = useWindowSize();
+  const [habits, setHabits] = useState<Habits[] | []>([]);
+
+  const handleFetch = async () => {
+    await axios('/api/habits').then((res) => {
+      setHabits(res.data.habits);
+    });
+  };
 
   const handleModal = () => {
     openModal({ element: <CreateHabit />, props: {} });
   };
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -39,9 +57,9 @@ const Habit = () => {
               </div>
             </div>
             <CardContainer>
-              <HabitCard content="영어공부 30분" />
-              <HabitCard content="코딩테스트 1문제" />
-              <HabitCard content="영양제 챙겨먹기" />
+              {habits.map((habit) => (
+                <HabitCard key={habit._id} content={habit.habit} />
+              ))}
             </CardContainer>
           </div>
         </div>
