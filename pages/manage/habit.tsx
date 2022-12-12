@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Navigator from 'components/navigator/navigator';
 import CurrentData from 'components/title/dateTitle';
 import Title from 'components/title/title';
@@ -13,31 +12,16 @@ import useWindowSize from 'customs/useWindowSize';
 import Pencel from 'components/svgs/pencel.svg';
 import useModal from 'customs/useModal';
 import Modal from 'components/modal/modal';
-import axios from 'axios';
-
-type Habits = {
-  habit: string;
-  _id: number;
-};
+import useHabitQuery from 'queries/useHabitQuery';
 
 const Habit = () => {
   const { openModal } = useModal();
   const { type } = useWindowSize();
-  const [habits, setHabits] = useState<Habits[] | []>([]);
-
-  const handleFetch = async () => {
-    await axios('/api/habits').then((res) => {
-      setHabits(res.data.habits);
-    });
-  };
+  const habitData = useHabitQuery();
 
   const handleModal = () => {
     openModal({ element: <CreateHabit />, props: {} });
   };
-
-  useEffect(() => {
-    handleFetch();
-  }, []);
 
   return (
     <div className="min-h-screen">
@@ -57,7 +41,7 @@ const Habit = () => {
               </div>
             </div>
             <CardContainer>
-              {habits.map((habit) => (
+              {habitData?.map((habit) => (
                 <HabitCard key={habit._id} content={habit.habit} />
               ))}
             </CardContainer>
