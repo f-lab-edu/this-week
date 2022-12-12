@@ -20,23 +20,11 @@ const useCreateHabit = () => {
     setHabitName(value);
   };
 
-  const createHabit = async () => {
-    // try {
-    //   await fetch('../api/habits', {
-    //     method: 'POST',
-    //     body: JSON.stringify({ id: 1, content: habitName }),
-    //   });
-    // } catch (e) {
-    //   console.log('error!!!', e);
-    // }
-  };
-
   return {
     habitName,
     checkedDay,
     handleCheckedDay,
     handleHabitName,
-    createHabit,
   };
 };
 
