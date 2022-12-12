@@ -4,7 +4,7 @@ import Title from 'components/title/title';
 import { STATISTIC_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
 import HeaderContainer from 'components/container/headerContainer';
-import StatisticSummary from 'components/statistic/statisticSummary';
+import StatisticFourBoxes from 'components/statistic/statisticFourBoxes';
 import WeekActivity from 'components/statistic/weekActivity';
 import HabitTable from 'components/statistic/habitTable';
 import useWindowSize from 'customs/useWindowSize';
@@ -35,11 +35,14 @@ const Statistic = () => {
               잘하고 있어요.
             </p>
           </div>
-          <div className="py-10">
-            {/* 슬라이어 구현 예정 */}
-            <StatisticSummary />
-            <WeekActivity />
-            <HabitTable />
+          <div className="flex flex-col gap-4 py-10 lg:grid lg:grid-cols-2 lg:gap-5">
+            <div>
+              <StatisticFourBoxes />
+            </div>
+            <div className="flex flex-col gap-4">
+              <WeekActivity />
+              <HabitTable />
+            </div>
           </div>
         </main>
       </MainContainer>

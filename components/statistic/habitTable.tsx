@@ -11,7 +11,7 @@ const HabitTable = () => {
     );
   };
   return (
-    <div className="w-full py-6">
+    <div className="w-full">
       <div className="h-56 rounded-lg bg-main-border p-5 text-lg">
         <table className="w-full table-auto text-sm">
           <thead>
