@@ -10,9 +10,11 @@ import BottomFixedContainer from 'components/container/bottomFixedContainer';
 import CreateButton from 'components/button/createButton';
 import { useState } from 'react';
 import CreateHabit from 'components/modal/createHabit';
+import useWindowSize from 'customs/useWindowSize';
 
 const Habit = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const { type } = useWindowSize();
 
   const handleBottomModal = () => {
     setModalOpen((prev) => !prev);
@@ -24,7 +26,7 @@ const Habit = () => {
       <MainContainer>
         <HeaderContainer>
           <CurrentData />
-          <Title text={HABIT_TITLE} />
+          <Title text={HABIT_TITLE[type]} />
         </HeaderContainer>
         <CardContainer>
           <HabitCard content="영어공부 30분" />

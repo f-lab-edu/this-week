@@ -11,6 +11,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      width: {
+        100: '25rem',
+      },
+      boxShadow: {
+        '3xl': '1px 2px 20px 2px rgba(0, 0, 0, 0.05)',
+      },
       colors: {
         'main-red': '#D34157',
         'main-red-10': '#D341571A',

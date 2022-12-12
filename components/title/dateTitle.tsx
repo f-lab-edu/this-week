@@ -6,7 +6,7 @@ const DateTitle = () => {
   const now = new Date();
 
   return (
-    <div className="text-xl text-sub-text">
+    <div className="text-xl text-sub-text lg:text-end">
       {`${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일, 
   ${DAY_OF_WEEK[now.getDay()]}`}
     </div>
