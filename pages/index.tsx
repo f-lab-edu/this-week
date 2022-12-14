@@ -17,7 +17,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navigator />
       <MainContainer>
-        <div className="pb-10">
+        <div className="pb-4 lg:pb-10">
           <CurrentData />
         </div>
         <Suspense fallback={<div className="text-3xl">fallback</div>}>

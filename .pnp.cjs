@@ -42,6 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.42.1"],\
             ["autoprefixer", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:10.4.13"],\
             ["axios", "npm:1.2.1"],\
+            ["chart.js", "npm:4.0.1"],\
             ["eslint", "npm:8.27.0"],\
             ["eslint-config-airbnb", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:19.0.4"],\
             ["eslint-config-airbnb-typescript", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:17.0.0"],\
@@ -59,6 +60,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.7.1"],\
             ["prettier-plugin-tailwindcss", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:0.1.13"],\
             ["react", "npm:18.2.0"],\
+            ["react-chartjs-2", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.0.1"],\
+            ["react-circular-progressbar", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:2.1.0"],\
             ["react-dom", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:18.2.0"],\
             ["react-query", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:3.39.2"],\
             ["tailwindcss", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:3.2.4"],\
@@ -5553,6 +5556,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["chart.js", [\
+        ["npm:4.0.1", {\
+          "packageLocation": "./.yarn/cache/chart.js-npm-4.0.1-237de58978-013dabf3cd.zip/node_modules/chart.js/",\
+          "packageDependencies": [\
+            ["chart.js", "npm:4.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["chokidar", [\
         ["npm:3.5.3", {\
           "packageLocation": "./.yarn/cache/chokidar-npm-3.5.3-c5f9b0a56a-b49fcde401.zip/node_modules/chokidar/",\
@@ -8863,6 +8875,54 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-chartjs-2", [\
+        ["npm:5.0.1", {\
+          "packageLocation": "./.yarn/cache/react-chartjs-2-npm-5.0.1-1cf2ecb0ab-b6f20cf68e.zip/node_modules/react-chartjs-2/",\
+          "packageDependencies": [\
+            ["react-chartjs-2", "npm:5.0.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/react-chartjs-2-virtual-841d9f7874/0/cache/react-chartjs-2-npm-5.0.1-1cf2ecb0ab-b6f20cf68e.zip/node_modules/react-chartjs-2/",\
+          "packageDependencies": [\
+            ["react-chartjs-2", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.0.1"],\
+            ["@types/chart.js", null],\
+            ["@types/react", "npm:18.0.25"],\
+            ["chart.js", "npm:4.0.1"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/chart.js",\
+            "@types/react",\
+            "chart.js",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-circular-progressbar", [\
+        ["npm:2.1.0", {\
+          "packageLocation": "./.yarn/cache/react-circular-progressbar-npm-2.1.0-11ab1459b1-dc118010a8.zip/node_modules/react-circular-progressbar/",\
+          "packageDependencies": [\
+            ["react-circular-progressbar", "npm:2.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:2.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-circular-progressbar-virtual-f5ff53569a/0/cache/react-circular-progressbar-npm-2.1.0-11ab1459b1-dc118010a8.zip/node_modules/react-circular-progressbar/",\
+          "packageDependencies": [\
+            ["react-circular-progressbar", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:2.1.0"],\
+            ["@types/react", "npm:18.0.25"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-dom", [\
         ["npm:18.2.0", {\
           "packageLocation": "./.yarn/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/",\
@@ -9952,6 +10012,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.42.1"],\
             ["autoprefixer", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:10.4.13"],\
             ["axios", "npm:1.2.1"],\
+            ["chart.js", "npm:4.0.1"],\
             ["eslint", "npm:8.27.0"],\
             ["eslint-config-airbnb", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:19.0.4"],\
             ["eslint-config-airbnb-typescript", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:17.0.0"],\
@@ -9969,6 +10030,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.7.1"],\
             ["prettier-plugin-tailwindcss", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:0.1.13"],\
             ["react", "npm:18.2.0"],\
+            ["react-chartjs-2", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.0.1"],\
+            ["react-circular-progressbar", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:2.1.0"],\
             ["react-dom", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:18.2.0"],\
             ["react-query", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:3.39.2"],\
             ["tailwindcss", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:3.2.4"],\
