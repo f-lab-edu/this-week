@@ -20,7 +20,7 @@ const Habit = () => {
   const habitData = useHabitQuery();
 
   const handleModal = () => {
-    openModal({ element: <CreateHabit />, props: {} });
+    openModal({ element: <CreateHabit /> });
   };
 
   return (
