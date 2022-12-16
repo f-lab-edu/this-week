@@ -20,3 +20,4 @@
 3. Context API + Custom Hooks로 모달 관리
 4. 성능 최적화
    - svgr로 svg파일 컴포넌트처럼 사용하기
+5. Suspense, Error Boundary를 통해 예외사항 선언적으로 관리하기
