@@ -7,13 +7,8 @@ import useCreateHabit from 'customs/useCreateHabit';
 type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
 const CreateHabitTemplate = () => {
-  const {
-    habitName,
-    checkedDay,
-    handleCheckedDay,
-    handleHabitName,
-    createHabit,
-  } = useCreateHabit();
+  const { habitName, checkedDay, handleCheckedDay, handleHabitName } =
+    useCreateHabit();
 
   const { closeModal } = useModal();
 
@@ -46,7 +41,7 @@ const CreateHabitTemplate = () => {
       <CreateButton
         text="습관 추가하기"
         onClick={() => {
-          createHabit();
+          // create habit
           closeModal({ element: <CreateHabitModal /> });
         }}
       />

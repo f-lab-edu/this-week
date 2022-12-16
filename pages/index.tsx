@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import Navigator from 'components/navigator/navigator';
 import CurrentData from 'components/title/dateTitle';
 
@@ -18,7 +20,9 @@ export default function Home() {
         <div className="pb-10">
           <CurrentData />
         </div>
-        <HasStatisticSummaryContainer main={<TodayHabits />} />
+        <Suspense fallback={<div className="text-3xl">fallback</div>}>
+          <HasStatisticSummaryContainer main={<TodayHabits />} />
+        </Suspense>
         <section className="flex flex-col gap-6 py-11 lg:hidden">
           <Title text={STATISTIC_SUMMARY_TITLE[type]} />
           <StatisticFourBoxes />
