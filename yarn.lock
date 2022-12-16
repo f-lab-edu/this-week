@@ -3810,6 +3810,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chart.js@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "chart.js@npm:4.0.1"
+  checksum: 013dabf3cd4ad2d71574e1d616906ae6f5b3f5914efb7f8ac7407bfe9b621e997f30966350bbdf31e3a1322c8c602715ef4dd6d0b6072590bb48db03861ac401
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:^3.5.3":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
@@ -6502,6 +6509,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-chartjs-2@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "react-chartjs-2@npm:5.0.1"
+  peerDependencies:
+    chart.js: ^4.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: b6f20cf68eb8961891af10250e737b50b940d74b7a3a07aae51f356960a865f822ee61856131c3965c7c547f06013ad963a679ed14d59d12e7c7d64c1db52f6c
+  languageName: node
+  linkType: hard
+
+"react-circular-progressbar@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "react-circular-progressbar@npm:2.1.0"
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: dc118010a8f94733daafac586c969f7e889ad0736d96a0fda79406ee62e9410848abfd3dee4887bb0ff46b99e1f8c86ee1afabc88dfbf4dcb95107b22de1d6d7
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
@@ -7440,6 +7466,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.42.1
     autoprefixer: ^10.4.13
     axios: ^1.2.1
+    chart.js: ^4.0.1
     eslint: ^8.27.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-airbnb-typescript: ^17.0.0
@@ -7457,6 +7484,8 @@ __metadata:
     prettier: ^2.7.1
     prettier-plugin-tailwindcss: ^0.1.13
     react: 18.2.0
+    react-chartjs-2: ^5.0.1
+    react-circular-progressbar: ^2.1.0
     react-dom: 18.2.0
     react-query: ^3.39.2
     tailwindcss: ^3.2.4
