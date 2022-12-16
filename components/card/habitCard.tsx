@@ -1,12 +1,12 @@
 import Checkbox from '@mui/joy/Checkbox';
-import useHabitCardClick from 'customs/useHabitCardClick';
+import useGetHabitQuery from 'customs/useHabitCardClick';
 
 type Props = {
   content: string;
 };
 
 const HabitCard = ({ content = '선택된 습관이 없습니다.' }: Props) => {
-  const { checked, method } = useHabitCardClick();
+  const { checked, method } = useGetHabitQuery();
 
   return (
     <li

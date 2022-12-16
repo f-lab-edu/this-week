@@ -2,13 +2,13 @@ import Title from 'components/title/title';
 import CardContainer from 'components/container/cardContainer';
 import HabitCard from 'components/card/habitCard';
 import MOTIVATION_TITLE from 'constants/title/habitTitle';
-import useHabitQuery from 'queries/useHabitQuery';
+import useGetHabitQuery from 'queries/useHabitQuery';
 
 import useWindowSize from 'customs/useWindowSize';
 
 const TodayHabits = () => {
   const { type } = useWindowSize();
-  const habitData = useHabitQuery();
+  const habitData = useGetHabitQuery();
 
   return (
     <div>

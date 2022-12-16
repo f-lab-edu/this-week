@@ -1,29 +1,44 @@
-import { useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { AxiosError } from 'axios';
-import { getHabits } from 'lib/apis';
+import { getHabits, createHabit, deleteHabit } from 'lib/apis';
 
-type Habit = {
+export type HabitType = {
   _id: number;
   habit: string;
 };
-
-const habitKeys = {
-  all: ['habits'] as const,
-  lists: () => [...habitKeys.all, 'list'] as const,
-  list: (filters: string) => [...habitKeys.lists(), { filters }] as const,
+export type CreateHabitType = {
+  habit: string;
+};
+export type DeleteHabitType = {
+  id: string;
 };
 
-const useHabitQuery = () => {
-  const { data: habitData } = useQuery<Habit[], AxiosError>({
-    queryKey: habitKeys.lists(),
-    queryFn: async () => {
+export const habitKeys = {
+  habit: ['habit'] as const,
+  habits: ['habits'] as const,
+};
+const useGetHabitQuery = () => {
+  const { data: habitData } = useQuery<HabitType[], AxiosError>(
+    habitKeys.habits,
+    async () => {
       const { data } = await getHabits();
       return data.habits;
     },
-    suspense: true,
-  });
-
+    { suspense: true },
+  );
   return habitData;
 };
+export default useGetHabitQuery;
 
-export default useHabitQuery;
+export const useCreateHabitMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation(createHabit, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(habitKeys.habits);
+    },
+  });
+};
+
+export const useDeleteHabitMutation = () => {
+  return useMutation((id: DeleteHabitType) => deleteHabit(id));
+};
