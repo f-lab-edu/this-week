@@ -9,5 +9,4 @@ const CenterModalContainer = ({ children }: ChildrenProps) => {
     </div>
   );
 };
-
 export default CenterModalContainer;
