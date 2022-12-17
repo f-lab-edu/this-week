@@ -1,9 +1,14 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import {
+  QueryClient,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from 'react-query';
 import { AxiosError } from 'axios';
-import { getHabits, createHabit, deleteHabit } from 'lib/apis';
+import { getHabits, createHabit, deleteHabit, updateHabit } from 'lib/apis';
 
 export type HabitType = {
-  _id: number;
+  _id: string;
   habit: string;
 };
 export type CreateHabitType = {
@@ -11,6 +16,10 @@ export type CreateHabitType = {
 };
 export type DeleteHabitType = {
   id: string;
+};
+export type UpdateConfigType = {
+  id: string;
+  habit: string;
 };
 
 export const habitKeys = {
@@ -40,5 +49,22 @@ export const useCreateHabitMutation = () => {
 };
 
 export const useDeleteHabitMutation = () => {
-  return useMutation((id: DeleteHabitType) => deleteHabit(id));
+  const queryClient = useQueryClient();
+  return useMutation((id: DeleteHabitType) => deleteHabit(id), {
+    onSuccess: () => {
+      queryClient.invalidateQueries(habitKeys.habits);
+    },
+  });
+};
+
+export const useUpdateHabitMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation((config: UpdateConfigType) => updateHabit(config), {
+    onSuccess: () => {
+      queryClient.invalidateQueries(habitKeys.habits);
+    },
+    onMutate: () => {
+      console.log('loading...');
+    },
+  });
 };

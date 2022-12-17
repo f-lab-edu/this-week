@@ -20,12 +20,12 @@ app.post(async (req, res) => {
 app.put(async (req, res) => {
   try {
     const body = req.body;
-    const id = req.body._id;
-    const updateContent = {
-      content: body.content,
+    const id = req.body.data.id;
+    const updateHabit = {
+      habit: body.data.habit,
     };
 
-    const habit = await Habit.findOneAndUpdate({ _id: id }, updateContent);
+    const habit = await Habit.findOneAndUpdate({ _id: id }, updateHabit);
     res.status(200).json({ habit });
   } catch (err) {
     console.log(err);
@@ -35,7 +35,7 @@ app.put(async (req, res) => {
 app.delete(async (req, res) => {
   try {
     const id = req.body.id;
-    const habit = await Habit.findByIdAndDelete(id);
+    const habit = await Habit.findByIdAndDelete({ _id: id });
 
     if (!habit) return res.status(404);
 

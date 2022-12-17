@@ -22,7 +22,7 @@ const Habit = () => {
     <div className="min-h-screen">
       <Navigator />
       <MainContainer>
-        <div className="pb-10">
+        <div className="pb-4 lg:pb-10">
           <CurrentData />
         </div>
         <div className="lg:flex lg:flex-col lg:items-center">
@@ -37,7 +37,11 @@ const Habit = () => {
             </div>
             <CardContainer>
               {habitData?.map((habit) => (
-                <HabitCard key={habit._id} content={habit.habit} />
+                <HabitCard
+                  key={habit._id}
+                  content={habit.habit}
+                  id={habit._id}
+                />
               ))}
             </CardContainer>
           </div>
