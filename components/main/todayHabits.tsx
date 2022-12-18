@@ -15,7 +15,7 @@ const TodayHabits = () => {
       <Title text={MOTIVATION_TITLE[type]} />
       <CardContainer>
         {habitData?.map((habit) => (
-          <HabitCard key={habit._id} content={habit.habit} />
+          <HabitCard key={habit._id} content={habit.habit} id={habit._id} />
         ))}
       </CardContainer>
     </div>
