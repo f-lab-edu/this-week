@@ -4,7 +4,6 @@ import ModalProvider from 'components/modal/modalProvider';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import AsyncBoundary from 'components/error/asyncBoundary';
 
-import AxiosContainer from 'components/axiosContainer';
 import ErrorAlert from 'components/error/errorAlert';
 
 const queryClient = new QueryClient({
@@ -20,18 +19,16 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <AxiosContainer>
-          <AsyncBoundary
-            pendingFallback={<div>Loading...</div>}
-            rejectedFallback={({ error, reset }) => (
-              <ErrorAlert error={error} reset={reset} />
-            )}
-          >
-            <ModalProvider>
-              <Component {...pageProps} />
-            </ModalProvider>
-          </AsyncBoundary>
-        </AxiosContainer>
+        <AsyncBoundary
+          pendingFallback={<div>Loading...</div>}
+          rejectedFallback={({ error, reset }) => (
+            <ErrorAlert error={error} reset={reset} />
+          )}
+        >
+          <ModalProvider>
+            <Component {...pageProps} />
+          </ModalProvider>
+        </AsyncBoundary>
       </Hydrate>
     </QueryClientProvider>
   );

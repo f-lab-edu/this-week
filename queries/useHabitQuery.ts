@@ -1,9 +1,4 @@
-import {
-  QueryClient,
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { AxiosError } from 'axios';
 import { getHabits, createHabit, deleteHabit, updateHabit } from 'lib/apis';
 

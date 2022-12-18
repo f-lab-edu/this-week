@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axiosInstance from 'lib/axiosInstance';
 
-export const getHabits = () => axios.get('/api/habits');
+export const getHabits = () => axiosInstance.get('/api/habits');
 export const createHabit = async (newHabit: { habit: string }) =>
-  await axios.post('/api/habits', newHabit);
+  await axiosInstance.post('/api/habits', newHabit);
 export const deleteHabit = async (id: { id: string }) => {
-  return await axios.delete('/api/habits', { data: id });
+  return await axiosInstance.delete('/api/habits', { data: id });
 };
 export const updateHabit = async (config: { id: string; habit: string }) => {
-  return await axios.put('/api/habits', { data: config });
+  return await axiosInstance.put('/api/habits', { data: config });
 };
