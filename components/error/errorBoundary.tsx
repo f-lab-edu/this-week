@@ -45,7 +45,6 @@ class ErrorBoundary extends Component<Props, State> {
   render() {
     const { error, hasError } = this.state;
     const { fallbackComponent, children } = this.props;
-    console.log(hasError, error);
     if (hasError && error) {
       return cloneElement(
         fallbackComponent({ error, reset: this.onResetErrorBoundary }),
