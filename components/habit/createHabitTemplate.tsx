@@ -32,7 +32,7 @@ const CreateHabitTemplate = () => {
             <DayCheckButton
               key={day}
               dayOfWeek={day}
-              checked={checkedDay[day]}
+              checked={checkedDay.includes(day)}
               onClick={() => handleCheckedDay(day)}
             />
           ))}
@@ -41,7 +41,7 @@ const CreateHabitTemplate = () => {
       <CreateButton
         text="습관 추가하기"
         onClick={() => {
-          mutate({ habit: habitName });
+          mutate({ habit: habitName, repeatDow: checkedDay });
           closeModal({ element: <CreateHabitModal /> });
         }}
       />

@@ -80,7 +80,7 @@ const Statistic = () => {
         </div>
         <HasStatisticSummaryContainer main={<Review />} />
       </MainContainer>
-      <Modal />
+      {/* <Modal /> */}
     </div>
   );
 };

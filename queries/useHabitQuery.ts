@@ -2,12 +2,16 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { AxiosError } from 'axios';
 import { getHabits, createHabit, deleteHabit, updateHabit } from 'lib/apis';
 
+type RepeatDow = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
+
 export type HabitType = {
   _id: string;
   habit: string;
+  repeatDow: RepeatDow[];
 };
 export type CreateHabitType = {
   habit: string;
+  repeatDow: RepeatDow[];
 };
 export type DeleteHabitType = {
   id: string;
@@ -15,6 +19,7 @@ export type DeleteHabitType = {
 export type UpdateConfigType = {
   id: string;
   habit: string;
+  repeatDow: RepeatDow[];
 };
 
 export const habitKeys = {

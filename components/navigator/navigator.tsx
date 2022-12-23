@@ -2,7 +2,6 @@ import SideTap from 'components/modal/sideTap';
 import Bars from 'components/svgs/bars.svg';
 import User from 'components/svgs/user.svg';
 import useModal from 'customs/useModal';
-import Modal from 'components/modal/modal';
 
 import Link from 'next/link';
 
@@ -38,7 +37,6 @@ const Navigator = () => {
       <div className="lg:">
         <User width="25px" height="25px" fill="#000000" />
       </div>
-      <Modal />
     </nav>
   );
 };

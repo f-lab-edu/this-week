@@ -4,17 +4,20 @@ type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
 const useCreateHabit = () => {
   const [habitName, setHabitName] = useState<string>('');
-  const [checkedDay, setCheckedDay] = useState({
-    mon: true,
-    tue: true,
-    wed: true,
-    thu: true,
-    fri: true,
-    sat: false,
-    sun: false,
-  });
+  const [checkedDay, setCheckedDay] = useState<DayOfWeek[]>([
+    'mon',
+    'tue',
+    'wed',
+    'thu',
+    'fri',
+  ]);
   const handleCheckedDay = (dayOfWeek: DayOfWeek) => {
-    setCheckedDay({ ...checkedDay, [dayOfWeek]: !checkedDay[dayOfWeek] });
+    if (checkedDay.includes(dayOfWeek)) {
+      const newCheckedDay = checkedDay.filter((day) => day !== dayOfWeek);
+      setCheckedDay([...newCheckedDay]);
+    } else {
+      setCheckedDay([...checkedDay, dayOfWeek]);
+    }
   };
   const handleHabitName = (value: string) => {
     setHabitName(value);

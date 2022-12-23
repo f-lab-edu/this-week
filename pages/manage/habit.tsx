@@ -56,7 +56,6 @@ const Habit = () => {
           </BottomFixedContainer>
         </div>
       </MainContainer>
-      <Modal />
     </div>
   );
 };
