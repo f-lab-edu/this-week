@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 const useHabitCardClick = () => {
-  const [checked, setChecked] = useState(false);
-  const method = {
-    onClick: () => setChecked((prev) => !prev),
-  };
-  return { checked, method };
+  const [checkedBox, setCheckedBox] = useState(false);
+  const [checkedDots, setCheckedDots] = useState(false);
+  const onClickCheckbox = () => setCheckedBox((prev) => !prev);
+  const onClickDots = () => setCheckedDots((prev) => !prev);
+  return { checkedBox, checkedDots, onClickCheckbox, onClickDots };
 };
 
 export default useHabitCardClick;

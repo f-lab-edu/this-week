@@ -1,29 +1,70 @@
-import { useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { AxiosError } from 'axios';
-import { getHabits } from 'lib/apis';
+import { getHabits, createHabit, deleteHabit, updateHabit } from 'lib/apis';
 
-type Habit = {
-  _id: number;
+type RepeatDow = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
+
+export type HabitType = {
+  _id: string;
   habit: string;
+  repeatDow: RepeatDow[];
+};
+export type CreateHabitType = {
+  habit: string;
+  repeatDow: RepeatDow[];
+};
+export type DeleteHabitType = {
+  id: string;
+};
+export type UpdateConfigType = {
+  id: string;
+  habit: string;
+  repeatDow: RepeatDow[];
 };
 
-const habitKeys = {
-  all: ['habits'] as const,
-  lists: () => [...habitKeys.all, 'list'] as const,
-  list: (filters: string) => [...habitKeys.lists(), { filters }] as const,
+export const habitKeys = {
+  habit: ['habit'] as const,
+  habits: ['habits'] as const,
 };
-
-const useHabitQuery = () => {
-  const { data: habitData } = useQuery<Habit[], AxiosError>({
-    queryKey: habitKeys.lists(),
-    queryFn: async () => {
+const useGetHabitQuery = () => {
+  const { data: habitData } = useQuery<HabitType[], AxiosError>(
+    habitKeys.habits,
+    async () => {
       const { data } = await getHabits();
       return data.habits;
     },
-    suspense: true,
-  });
-
+    { suspense: true },
+  );
   return habitData;
 };
+export default useGetHabitQuery;
 
-export default useHabitQuery;
+export const useCreateHabitMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation(createHabit, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(habitKeys.habits);
+    },
+  });
+};
+
+export const useDeleteHabitMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation((id: DeleteHabitType) => deleteHabit(id), {
+    onSuccess: () => {
+      queryClient.invalidateQueries(habitKeys.habits);
+    },
+  });
+};
+
+export const useUpdateHabitMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation((config: UpdateConfigType) => updateHabit(config), {
+    onSuccess: () => {
+      queryClient.invalidateQueries(habitKeys.habits);
+    },
+    onMutate: () => {
+      console.log('loading...');
+    },
+  });
+};

@@ -1,16 +1,21 @@
 import CreateButton from 'components/button/createButton';
 import DayCheckButton from 'components/button/dayCheckButton';
 import useModal from 'customs/useModal';
-import CreateHabitModal from 'components/modal/createHabitModal';
-import useCreateHabit from 'customs/useCreateHabit';
-import { useCreateHabitMutation } from 'queries/useHabitQuery';
+import UpdateHabitModal from 'components/modal/updateHabitModal';
+import useUpdateHabit from 'customs/useUpdateHabit';
+import { useUpdateHabitMutation } from 'queries/useHabitQuery';
 type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
-const CreateHabitTemplate = () => {
+type Props = {
+  content: string;
+  id: string;
+};
+
+const UpdateHabitTemplate = ({ content, id }: Props) => {
   const { habitName, checkedDay, handleCheckedDay, handleHabitName } =
-    useCreateHabit();
+    useUpdateHabit({ content });
   const { closeModal } = useModal();
-  const { mutate } = useCreateHabitMutation();
+  const { mutate } = useUpdateHabitMutation();
 
   return (
     <div className="flex w-full flex-col gap-8 py-6">
@@ -20,7 +25,6 @@ const CreateHabitTemplate = () => {
           <input
             value={habitName}
             onChange={(event) => handleHabitName(event.target.value)}
-            placeholder="습관 이름을 입력하세요."
             className="h-10 w-full text-lg outline-none"
           />
         </div>
@@ -32,7 +36,7 @@ const CreateHabitTemplate = () => {
             <DayCheckButton
               key={day}
               dayOfWeek={day}
-              checked={checkedDay.includes(day)}
+              checked={checkedDay[day]}
               onClick={() => handleCheckedDay(day)}
             />
           ))}
@@ -41,14 +45,16 @@ const CreateHabitTemplate = () => {
       <CreateButton
         text="습관 추가하기"
         onClick={() => {
-          mutate({ habit: habitName, repeatDow: checkedDay });
-          closeModal({ element: <CreateHabitModal /> });
+          mutate({ habit: habitName, id });
+          closeModal({
+            element: <UpdateHabitModal content={content} id={id} />,
+          });
         }}
       />
     </div>
   );
 };
 
-export default CreateHabitTemplate;
+export default UpdateHabitTemplate;
 
 const WEEK: DayOfWeek[] = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];

@@ -7,18 +7,19 @@ import MainContainer from 'components/container/mainContainer';
 import WeekNumber from 'components/title/weekNumber';
 import Plus from 'components/svgs/plus.svg';
 
+import CreateHabitModal from 'components/modal/createHabitModal';
 import CreateReview from 'components/modal/createReview';
 import useWindowSize from 'customs/useWindowSize';
 import Modal from 'components/modal/modal';
 import useModal from 'customs/useModal';
 import HasStatisticSummaryContainer from 'components/container/hasStatisticSummaryContainer';
 
-const Test = () => {
+const Review = () => {
   const { openModal } = useModal();
   const { type } = useWindowSize();
 
   const handleModal = () => {
-    openModal({ element: <CreateReview />, props: {} });
+    openModal({ element: <CreateHabitModal />, props: {} });
   };
 
   return (
@@ -74,12 +75,12 @@ const Statistic = () => {
     <div className="min-h-screen">
       <Navigator />
       <MainContainer>
-        <div className="pb-10">
+        <div className="pb-4 lg:pb-10">
           <CurrentData />
         </div>
-        <HasStatisticSummaryContainer main={<Test />} />
+        <HasStatisticSummaryContainer main={<Review />} />
       </MainContainer>
-      <Modal />
+      {/* <Modal /> */}
     </div>
   );
 };

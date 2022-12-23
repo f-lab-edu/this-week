@@ -12,22 +12,17 @@ import useWindowSize from 'customs/useWindowSize';
 import Pencel from 'components/svgs/pencel.svg';
 import useModal from 'customs/useModal';
 import Modal from 'components/modal/modal';
-import useHabitQuery from 'queries/useHabitQuery';
+import useGetHabitQuery from 'queries/useHabitQuery';
 
 const Habit = () => {
   const { openModal } = useModal();
   const { type } = useWindowSize();
-  const habitData = useHabitQuery();
-
-  const handleModal = () => {
-    openModal({ element: <CreateHabit /> });
-  };
-
+  const habitData = useGetHabitQuery();
   return (
     <div className="min-h-screen">
       <Navigator />
       <MainContainer>
-        <div className="pb-10">
+        <div className="pb-4 lg:pb-10">
           <CurrentData />
         </div>
         <div className="lg:flex lg:flex-col lg:items-center">
@@ -35,14 +30,18 @@ const Habit = () => {
             <Title text={HABIT_TITLE[type]} />
             <div className="hidden lg:block">
               <div className="flex justify-end pt-2">
-                <button onClick={handleModal}>
+                <button onClick={() => openModal({ element: <CreateHabit /> })}>
                   <Pencel width="25px" fill="#808080" />
                 </button>
               </div>
             </div>
             <CardContainer>
               {habitData?.map((habit) => (
-                <HabitCard key={habit._id} content={habit.habit} />
+                <HabitCard
+                  key={habit._id}
+                  content={habit.habit}
+                  id={habit._id}
+                />
               ))}
             </CardContainer>
           </div>
@@ -50,12 +49,13 @@ const Habit = () => {
         <div className="lg:hidden">
           <BottomFixedContainer>
             <div className="flex h-24 w-full items-center">
-              <CreateButton onClick={handleModal} />
+              <CreateButton
+                onClick={() => openModal({ element: <CreateHabit /> })}
+              />
             </div>
           </BottomFixedContainer>
         </div>
       </MainContainer>
-      <Modal />
     </div>
   );
 };
