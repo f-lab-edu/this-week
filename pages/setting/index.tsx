@@ -10,7 +10,6 @@ const Setting = () => {
   const { type } = useWindowSize();
   return (
     <>
-      <Navigator />
       <MainContainer>
         <HeaderContainer>
           <Title text={SETTING_TITLE[type]} />

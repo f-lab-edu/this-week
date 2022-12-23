@@ -14,6 +14,7 @@ app.get(async (_, res) => {
       date: new Date(),
     });
     await dailyHabit.save();
+    console.log(res);
     return res.status(200).json({ dailyHabit });
   });
 });

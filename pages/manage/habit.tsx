@@ -20,7 +20,6 @@ const Habit = () => {
   const habitData = useGetHabitQuery();
   return (
     <div className="min-h-screen">
-      <Navigator />
       <MainContainer>
         <div className="pb-4 lg:pb-10">
           <CurrentData />
