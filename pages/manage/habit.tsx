@@ -11,7 +11,6 @@ import CreateHabit from 'components/modal/createHabitModal';
 import useWindowSize from 'customs/useWindowSize';
 import Pencel from 'components/svgs/pencel.svg';
 import useModal from 'customs/useModal';
-import Modal from 'components/modal/modal';
 import useGetHabitQuery from 'queries/useHabitQuery';
 
 const Habit = () => {

@@ -25,7 +25,6 @@ export default function Home() {
         <div className="pb-4 lg:pb-10">
           <CurrentData />
         </div>
-
         <AsyncBoundary
           pendingFallback={<div>Loading...</div>}
           rejectedFallback={({ error, reset }) => (
