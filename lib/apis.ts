@@ -29,3 +29,46 @@ export const deleteHabit = async (id: { id: string }) => {
     data: id,
   });
 };
+export const getTodayHabits = () =>
+  axiosInstance.get<GetHabitsResponse>('/api/today');
+
+// ----------------------------------------------
+type Review = {
+  id: number;
+  week: string;
+  liked: string;
+  learned: string;
+  lacked: string;
+  longedfor: string;
+  tag: {
+    data: string[] | null;
+  };
+  rating: number;
+};
+type NewReview = {
+  data: {
+    week: string;
+    liked: string;
+    learned: string;
+    lacked: string;
+    longedfor: string;
+    tag: string[] | null;
+    rating: number;
+  };
+};
+type DeleteReview = {
+  id: number;
+};
+export const getReviews = () => axiosInstance.get('/api/reviews');
+export const createRiview = async (newReview: NewReview) =>
+  await axiosInstance.post('/api/reviews', newReview);
+export const updateReview = async (config: Review) => {
+  return await axiosInstance.put('/api/reviews', {
+    data: config,
+  });
+};
+export const deleteReview = async (id: DeleteReview) => {
+  return await axiosInstance.delete('/api/reviews', {
+    data: id,
+  });
+};

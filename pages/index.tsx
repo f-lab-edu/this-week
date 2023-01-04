@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-import Navigator from 'components/navigator/navigator';
+// import Navigator from 'components/navigator/navigator';
 import CurrentData from 'components/title/dateTitle';
 
 import Title from 'components/title/title';
@@ -13,12 +13,15 @@ import HasStatisticSummaryContainer from 'components/container/hasStatisticSumma
 import AsyncBoundary from 'components/error/asyncBoundary';
 import ErrorAlert from 'components/error/errorAlert';
 
+import useGetReviewsQuery from 'queries/useReviewQuery';
+
 const TodayHabits = dynamic(() => import('components/main/todayHabits'), {
   ssr: false,
 });
 
 export default function Home() {
   const { type } = useWindowSize();
+  const data = useGetReviewsQuery();
   return (
     <div className="min-h-screen">
       <MainContainer>

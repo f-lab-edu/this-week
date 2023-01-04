@@ -3,7 +3,6 @@ import DayCheckButton from 'components/button/dayCheckButton';
 import useModal from 'customs/useModal';
 import UpdateHabitModal from 'components/modal/updateHabitModal';
 import useUpdateHabit from 'customs/useUpdateHabit';
-import { useUpdateHabitMutation } from 'queries/useHabitQuery';
 type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
 type Props = {
@@ -15,7 +14,6 @@ const UpdateHabitTemplate = ({ content, id }: Props) => {
   const { habitName, checkedDay, handleCheckedDay, handleHabitName } =
     useUpdateHabit({ content });
   const { closeModal } = useModal();
-  const { mutate } = useUpdateHabitMutation();
 
   return (
     <div className="flex w-full flex-col gap-8 py-6">
@@ -45,7 +43,6 @@ const UpdateHabitTemplate = ({ content, id }: Props) => {
       <CreateButton
         text="습관 추가하기"
         onClick={() => {
-          mutate({ habit: habitName, id });
           closeModal({
             element: <UpdateHabitModal content={content} id={id} />,
           });
