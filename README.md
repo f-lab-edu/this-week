@@ -21,6 +21,7 @@
 4. svgr로 svg파일 컴포넌트처럼 사용하기
 5. Suspense, Error Boundary를 통해 예외사항 선언적으로 관리하기
 6. Headless CMS (Strapi) 사용
+7. 기획 변경 이유와 전략
 
 # 업데이트 할 것
 1. 성능 최적화
