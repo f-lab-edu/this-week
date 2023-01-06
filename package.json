@@ -20,6 +20,7 @@
     "@types/react-dom": "18.0.8",
     "axios": "^1.2.1",
     "chart.js": "^4.0.1",
+    "dayjs": "^1.11.7",
     "eslint-config-next": "13.0.3",
     "jotai": "^1.9.2",
     "mongoose": "^6.8.0",

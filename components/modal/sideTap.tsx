@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 import Target from 'components/svgs/target.svg';
-import BoxOpen from 'components/svgs/boxOpen.svg';
-import ChartPie from 'components/svgs/chartPie.svg';
+// import BoxOpen from 'components/svgs/boxOpen.svg';
+// import ChartPie from 'components/svgs/chartPie.svg';
 import SquareCheck from 'components/svgs/squareCheck.svg';
 import User from 'components/svgs/user.svg';
 import Key from 'components/svgs/key.svg';
@@ -28,17 +28,17 @@ const SideTap = () => {
   return (
     <div
       ref={modalRef}
-      className="flex h-full w-3/5 flex-col gap-10 rounded-tr-lg rounded-br-lg bg-white p-10"
+      className="flex h-full w-3/5 flex-col gap-10 rounded-tr-lg rounded-br-lg bg-white py-10 px-8"
     >
       <h1 className="text-3xl font-bold">디스위크</h1>
       <ul className="flex flex-col gap-4 text-xl">
         <Link href={`/`}>
           <li className="flex items-center gap-4" onClick={closeSideTap}>
             <Target width="25px" height="25px" fill="#808080" />
-            <button>오늘의 습관</button>
+            <button>디스위크</button>
           </li>
         </Link>
-        <Link href={`/manage/habit`}>
+        {/* <Link href={`/manage/habit`}>
           <li className="flex items-center gap-4" onClick={closeSideTap}>
             <BoxOpen width="25px" height="25px" fill="#808080" />
             <button>습관 관리</button>
@@ -49,23 +49,23 @@ const SideTap = () => {
             <ChartPie width="25px" height="25px" fill="#808080" />
             <button>습관 데이터</button>
           </li>
-        </Link>
+        </Link> */}
         <Link href={`/manage/review`}>
           <li className="flex items-center gap-4" onClick={closeSideTap}>
             <SquareCheck width="25px" height="25px" fill="#808080" />
-            <button>회고 관리</button>
+            <button>지난 회고</button>
           </li>
         </Link>
         <Link href={`/user`}>
           <li className="flex items-center gap-4" onClick={closeSideTap}>
             <User width="25px" height="25px" fill="#808080" />
-            <button>유저 정보</button>
+            <button>마이 페이지</button>
           </li>
         </Link>
         <Link href={`/setting`}>
           <li className="flex items-center gap-4" onClick={closeSideTap}>
             <Key width="25px" height="25px" fill="#808080" />
-            <button>설정</button>
+            <button>개발자 소개</button>
           </li>
         </Link>
       </ul>
