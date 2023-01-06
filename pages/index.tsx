@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import CurrentData from 'components/title/dateTitle';
 
 import Title from 'components/title/title';
-import StatisticFourBoxes from 'components/statistic/statisticFourBoxes';
+// import StatisticFourBoxes from 'components/statistic/statisticFourBoxes';
 import MainContainer from 'components/container/mainContainer';
 
 import { STATISTIC_SUMMARY_TITLE } from 'constants/title/habitTitle';
@@ -23,22 +23,24 @@ export default function Home() {
   const { type } = useWindowSize();
   const data = useGetReviewsQuery();
   return (
-    <div className="min-h-screen">
+    <div className="">
       <MainContainer>
-        <div className="pb-4 lg:pb-10">
-          <CurrentData />
+        <div className="px-6">
+          <div className="pb-4 lg:pb-10">
+            <CurrentData />
+          </div>
+          <AsyncBoundary
+            pendingFallback={<div>Loading...</div>}
+            rejectedFallback={({ error, reset }) => (
+              <ErrorAlert error={error} reset={reset} />
+            )}
+          >
+            <HasStatisticSummaryContainer main={<TodayHabits />} />
+          </AsyncBoundary>
         </div>
-        <AsyncBoundary
-          pendingFallback={<div>Loading...</div>}
-          rejectedFallback={({ error, reset }) => (
-            <ErrorAlert error={error} reset={reset} />
-          )}
-        >
-          <HasStatisticSummaryContainer main={<TodayHabits />} />
-        </AsyncBoundary>
-        <section className="flex flex-col gap-6 py-11 lg:hidden">
+        <section className="flex flex-col gap-6 px-6 py-4 lg:hidden">
           <Title text={STATISTIC_SUMMARY_TITLE[type]} />
-          <StatisticFourBoxes />
+          {/* <StatisticFourBoxes /> */}
         </section>
       </MainContainer>
     </div>

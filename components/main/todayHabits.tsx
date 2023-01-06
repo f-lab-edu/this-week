@@ -12,10 +12,10 @@ const TodayHabits = () => {
   const thisWeek = dayjs().week();
 
   return (
-    <div className="flex flex-col gap-6">
+    <div>
       <Title text={MOTIVATION_TITLE[type]} />
       <CardContainer>
-        <button className="font-white rounded-lg bg-main-blue px-5 py-3 text-lg text-white">
+        <button className="rounded-lg bg-main-beige px-5 py-3 text-lg">
           {thisYear} / {thisWeek}주차 회고 쓰기 ✏️
         </button>
         {/* {habitData?.map((habit) => (
