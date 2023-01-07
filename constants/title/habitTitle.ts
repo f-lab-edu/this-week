@@ -21,8 +21,8 @@ export const STATISTIC_TITLE = {
 };
 
 export const REVIEW_TITLE = {
-  sm: '이번주를 돌아보며 👋🏻',
-  lg: '이번주를 돌아보며 👋🏻',
+  sm: '이번주를 돌아보며',
+  lg: '이번주를 돌아보며',
 };
 
 export const USER_TITLE = { sm: '유저 정보', lg: '유저 정보' };

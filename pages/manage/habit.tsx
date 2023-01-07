@@ -1,22 +1,18 @@
-import Navigator from 'components/navigator/navigator';
 import CurrentData from 'components/title/dateTitle';
 import Title from 'components/title/title';
 import { HABIT_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
-import CardContainer from 'components/container/cardContainer';
-import HabitCard from 'components/card/habitCard';
 import BottomFixedContainer from 'components/container/bottomSheetContainer';
 import CreateButton from 'components/button/createButton';
 import CreateHabit from 'components/modal/createHabitModal';
 import useWindowSize from 'customs/useWindowSize';
 import Pencel from 'components/svgs/pencel.svg';
 import useModal from 'customs/useModal';
-// import useGetHabitQuery from 'queries/useHabitQuery';
 
 const Habit = () => {
   const { openModal } = useModal();
   const { type } = useWindowSize();
-  // const habitData = useGetHabitQuery();
+
   return (
     <div className="min-h-screen">
       <MainContainer>
@@ -33,15 +29,6 @@ const Habit = () => {
                 </button>
               </div>
             </div>
-            <CardContainer>
-              {/* {habitData?.map((habit) => (
-                <HabitCard
-                  key={habit._id}
-                  content={habit.habit}
-                  id={habit._id}
-                />
-              ))} */}
-            </CardContainer>
           </div>
         </div>
         <div className="lg:hidden">

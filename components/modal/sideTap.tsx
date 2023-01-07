@@ -50,12 +50,12 @@ const SideTap = () => {
             <button>습관 데이터</button>
           </li>
         </Link> */}
-        <Link href={`/manage/review`}>
+        {/* <Link href={`/manage/review`}>
           <li className="flex items-center gap-4" onClick={closeSideTap}>
             <SquareCheck width="25px" height="25px" fill="#808080" />
             <button>지난 회고</button>
           </li>
-        </Link>
+        </Link> */}
         <Link href={`/user`}>
           <li className="flex items-center gap-4" onClick={closeSideTap}>
             <User width="25px" height="25px" fill="#808080" />
