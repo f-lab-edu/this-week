@@ -29,6 +29,7 @@ const Banner = () => {
   };
   return (
     <div className="bg-[url('/static/background.jpg')] bg-cover p-6">
+      {/* <div className="bg-gradient-to-b from-indigo-400 p-6"> */}
       <div className="pb-6 lg:pb-10">
         <CurrentData />
       </div>
