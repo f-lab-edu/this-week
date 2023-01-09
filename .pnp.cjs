@@ -33,6 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/fontawesome-svg-core", "npm:6.2.1"],\
             ["@fortawesome/free-solid-svg-icons", "npm:6.2.1"],\
             ["@fortawesome/react-fontawesome", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:0.2.0"],\
+            ["@headlessui/react", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:1.7.7"],\
             ["@mui/joy", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.0.0-alpha.55"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@types/node", "npm:18.11.9"],\
@@ -3730,6 +3731,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@gar-promisify-npm-1.1.3-ac1a325862-4059f790e2.zip/node_modules/@gar/promisify/",\
           "packageDependencies": [\
             ["@gar/promisify", "npm:1.1.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@headlessui/react", [\
+        ["npm:1.7.7", {\
+          "packageLocation": "./.yarn/cache/@headlessui-react-npm-1.7.7-23b64271f9-049d7ee460.zip/node_modules/@headlessui/react/",\
+          "packageDependencies": [\
+            ["@headlessui/react", "npm:1.7.7"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:1.7.7", {\
+          "packageLocation": "./.yarn/__virtual__/@headlessui-react-virtual-a5dcc9b531/0/cache/@headlessui-react-npm-1.7.7-23b64271f9-049d7ee460.zip/node_modules/@headlessui/react/",\
+          "packageDependencies": [\
+            ["@headlessui/react", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:1.7.7"],\
+            ["@types/react", "npm:18.0.25"],\
+            ["@types/react-dom", "npm:18.0.8"],\
+            ["client-only", "npm:0.0.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10024,6 +10052,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/fontawesome-svg-core", "npm:6.2.1"],\
             ["@fortawesome/free-solid-svg-icons", "npm:6.2.1"],\
             ["@fortawesome/react-fontawesome", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:0.2.0"],\
+            ["@headlessui/react", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:1.7.7"],\
             ["@mui/joy", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.0.0-alpha.55"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@types/node", "npm:18.11.9"],\
