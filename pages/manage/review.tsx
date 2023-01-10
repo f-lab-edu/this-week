@@ -1,5 +1,3 @@
-import Navigator from 'components/navigator/navigator';
-
 import Title from 'components/title/title';
 import CurrentData from 'components/title/dateTitle';
 import { REVIEW_TITLE } from 'constants/title/habitTitle';
@@ -8,9 +6,8 @@ import WeekNumber from 'components/title/weekNumber';
 import Plus from 'components/svgs/plus.svg';
 
 import CreateHabitModal from 'components/modal/createHabitModal';
-import CreateReview from 'components/modal/createReview';
 import useWindowSize from 'customs/useWindowSize';
-import Modal from 'components/modal/modal';
+
 import useModal from 'customs/useModal';
 import HasStatisticSummaryContainer from 'components/container/hasStatisticSummaryContainer';
 

@@ -4,11 +4,16 @@ type DayOfWeek = {
 
 const DateTitle = () => {
   const now = new Date();
+  const data = `${now.getFullYear()}년 ${
+    now.getMonth() + 1
+  }월 ${now.getDate()}일, 
+${DAY_OF_WEEK[now.getDay()]}`;
 
   return (
-    <div className="text-xl text-sub-text lg:text-end">
-      {`${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일, 
-  ${DAY_OF_WEEK[now.getDay()]}`}
+    <div className="text-lg lg:text-end">
+      <span className="rounded-lg bg-soft-black px-4 py-1 text-white">
+        {data}
+      </span>
     </div>
   );
 };

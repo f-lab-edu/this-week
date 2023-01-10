@@ -31,6 +31,7 @@ module.exports = {
         'main-border': '#F0F0F0',
         'main-black-40': '#00000066',
         'sub-text': '#AAAAAA',
+        'soft-black': '#0E1111',
       },
       keyframes: {
         toggle: {
