@@ -3,14 +3,14 @@ import DayCheckButton from 'components/button/dayCheckButton';
 import useModal from 'customs/useModal';
 import CreateHabitModal from 'components/modal/createHabitModal';
 import useCreateHabit from 'customs/useCreateHabit';
-import { useCreateHabitMutation } from 'queries/useHabitQuery';
+import { useCreateReviewMutation } from 'queries/useReviewQuery';
 type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
 const CreateHabitTemplate = () => {
   const { habitName, checkedDay, handleCheckedDay, handleHabitName } =
     useCreateHabit();
   const { closeModal } = useModal();
-  const { mutate } = useCreateHabitMutation();
+  const { mutate } = useCreateReviewMutation();
 
   return (
     <div className="flex w-full flex-col gap-8 py-6">
@@ -41,7 +41,17 @@ const CreateHabitTemplate = () => {
       <CreateButton
         text="습관 추가하기"
         onClick={() => {
-          mutate({ habit: habitName, repeatDow: checkedDay });
+          mutate({
+            data: {
+              week: '2023/3',
+              liked: '하하',
+              learned: '호호',
+              lacked: '히히',
+              longedfor: '허허',
+              tag: null,
+              rating: 5,
+            },
+          });
           closeModal({ element: <CreateHabitModal /> });
         }}
       />

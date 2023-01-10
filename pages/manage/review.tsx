@@ -73,14 +73,12 @@ const Review = () => {
 const Statistic = () => {
   return (
     <div className="min-h-screen">
-      <Navigator />
       <MainContainer>
         <div className="pb-4 lg:pb-10">
           <CurrentData />
         </div>
         <HasStatisticSummaryContainer main={<Review />} />
       </MainContainer>
-      {/* <Modal /> */}
     </div>
   );
 };

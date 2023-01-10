@@ -11,16 +11,14 @@ import CreateHabit from 'components/modal/createHabitModal';
 import useWindowSize from 'customs/useWindowSize';
 import Pencel from 'components/svgs/pencel.svg';
 import useModal from 'customs/useModal';
-import Modal from 'components/modal/modal';
-import useGetHabitQuery from 'queries/useHabitQuery';
+// import useGetHabitQuery from 'queries/useHabitQuery';
 
 const Habit = () => {
   const { openModal } = useModal();
   const { type } = useWindowSize();
-  const habitData = useGetHabitQuery();
+  // const habitData = useGetHabitQuery();
   return (
     <div className="min-h-screen">
-      <Navigator />
       <MainContainer>
         <div className="pb-4 lg:pb-10">
           <CurrentData />
@@ -36,13 +34,13 @@ const Habit = () => {
               </div>
             </div>
             <CardContainer>
-              {habitData?.map((habit) => (
+              {/* {habitData?.map((habit) => (
                 <HabitCard
                   key={habit._id}
                   content={habit.habit}
                   id={habit._id}
                 />
-              ))}
+              ))} */}
             </CardContainer>
           </div>
         </div>

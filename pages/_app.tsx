@@ -4,6 +4,7 @@ import ModalProvider from 'components/modal/modalProvider';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import AsyncBoundary from 'components/error/asyncBoundary';
 import Modal from 'components/modal/modal';
+import Navigator from 'components/navigator/navigator';
 
 import ErrorAlert from 'components/error/errorAlert';
 
@@ -27,6 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
           )}
         >
           <ModalProvider>
+            <Navigator />
             <Component {...pageProps} />
             <Modal />
           </ModalProvider>

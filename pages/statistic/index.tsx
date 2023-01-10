@@ -13,7 +13,6 @@ const Statistic = () => {
   const { type } = useWindowSize();
   return (
     <div className="min-h-screen">
-      <Navigator />
       <MainContainer>
         <HeaderContainer>
           <CurrentData />

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.BASE_URL;
+// Todo: .env 작동 안하는 거 수정
+// const BASE_URL = process.env.BASE_URL;
 const axiosApi = (baseURL: string | undefined) => axios.create({ baseURL });
-const axiosInstance = axiosApi(BASE_URL);
+const axiosInstance = axiosApi('http://localhost:1337');
 export default axiosInstance;

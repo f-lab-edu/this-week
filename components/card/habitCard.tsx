@@ -1,7 +1,6 @@
 import Checkbox from 'components/button/checkbox';
 import useHabitCardClick from 'customs/useHabitCardClick';
 import Dots from 'components/svgs/dots.svg';
-import { useDeleteHabitMutation } from 'queries/useHabitQuery';
 import useModal from 'customs/useModal';
 import UpdateHabitModal from 'components/modal/updateHabitModal';
 
@@ -13,7 +12,6 @@ type Props = {
 const HabitCard = ({ content = '선택된 습관이 없습니다.', id }: Props) => {
   const { checkedBox, checkedDots, onClickCheckbox, onClickDots } =
     useHabitCardClick();
-  const { mutate } = useDeleteHabitMutation();
   const { openModal } = useModal();
 
   return (
@@ -44,7 +42,7 @@ const HabitCard = ({ content = '선택된 습관이 없습니다.', id }: Props)
             </button>
             <button
               className="rounded bg-white py-1 px-2"
-              onClick={() => mutate({ id })}
+              // onClick={() => mutate({ id })}
             >
               삭제
             </button>

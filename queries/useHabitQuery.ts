@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { AxiosError } from 'axios';
 import { getHabits, createHabit, deleteHabit, updateHabit } from 'lib/apis';
+import { getDay } from 'lib/date';
 
 type RepeatDow = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
@@ -26,6 +27,7 @@ export const habitKeys = {
   habit: ['habit'] as const,
   habits: ['habits'] as const,
 };
+
 const useGetHabitQuery = () => {
   const { data: habitData } = useQuery<HabitType[], AxiosError>(
     habitKeys.habits,
@@ -33,11 +35,29 @@ const useGetHabitQuery = () => {
       const { data } = await getHabits();
       return data.habits;
     },
-    { suspense: true },
+    {
+      suspense: true,
+    },
   );
   return habitData;
 };
 export default useGetHabitQuery;
+
+export const useGetTodayHabitQuery = () => {
+  const { data: habitData } = useQuery<HabitType[], AxiosError>(
+    habitKeys.habits,
+    async () => {
+      const { data } = await getHabits();
+      return data.habits;
+    },
+    {
+      suspense: true,
+      select: (habits) =>
+        habits.filter((habit) => habit.repeatDow.includes(getDay())),
+    },
+  );
+  return habitData;
+};
 
 export const useCreateHabitMutation = () => {
   const queryClient = useQueryClient();

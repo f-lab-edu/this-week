@@ -7,14 +7,11 @@ import HeaderContainer from 'components/container/headerContainer';
 
 const User = () => {
   return (
-    <>
-      <Navigator />
-      <MainContainer>
-        <HeaderContainer>
-          <Title text={USER_TITLE} />
-        </HeaderContainer>
-      </MainContainer>
-    </>
+    <MainContainer>
+      <HeaderContainer>
+        <Title text={USER_TITLE.sm} />
+      </HeaderContainer>
+    </MainContainer>
   );
 };
 
