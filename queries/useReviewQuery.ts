@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { AxiosError } from 'axios';
 import { getReviews, createRiview, deleteReview, updateReview } from 'lib/apis';
+import { getYearOfLastMonth, getLastMonth } from 'lib/date';
 
 export const reviewKeys = {
   review: ['review'] as const,
@@ -11,7 +12,9 @@ export const reviewKeys = {
 export type ReviewType = {
   id: number;
   attributes: {
-    week: string;
+    week: number;
+    month: number;
+    year: number;
     liked: string;
     learned: string;
     lacked: string;
@@ -31,7 +34,9 @@ export type DeleteHabitType = {
 
 export type UpdateConfigType = {
   id: number;
-  week: string;
+  week: number;
+  month: number;
+  year: number;
   liked: string;
   learned: string;
   lacked: string;
@@ -59,6 +64,21 @@ const useGetReviewsQuery = () => {
 };
 
 export default useGetReviewsQuery;
+
+export const useGetLastMonthReviewQuery = () => {
+  const { data: reviewData } = useQuery<ReviewType[], AxiosError>(
+    reviewKeys.reviews,
+    async () => {
+      const query = `filters[month][$eq]=${getLastMonth}&filters[year][$eq]=${getYearOfLastMonth}`;
+      const { data } = await getReviews(query);
+      return data.data;
+    },
+    {
+      suspense: true,
+    },
+  );
+  return reviewData;
+};
 
 export const useCreateReviewMutation = () => {
   const queryClient = useQueryClient();
