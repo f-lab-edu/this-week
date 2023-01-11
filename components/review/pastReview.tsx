@@ -13,19 +13,19 @@ const PastReview = () => {
         <div className="row-span-4 mb-2 flex h-40 flex-col items-center justify-center gap-4 rounded-lg bg-main-red p-5 text-white">
           <Folder width="50px" fill="#0000001A" />
         </div>
-        <p>이번달</p>
+        <p>어제</p>
       </div>
       <div>
         <div className="row-span-4 mb-2 flex h-40 flex-col items-center justify-center gap-4 rounded-lg bg-main-pink p-5 text-white">
           <Folder width="50px" fill="#0000001A" />
         </div>
-        <p>지난달</p>
+        <p>이번주</p>
       </div>
       <div>
         <div className="row-span-4 mb-2 flex h-40 flex-col items-center justify-center gap-4 rounded-lg bg-main-beige p-5">
           <Folder width="50px" fill="#0000001A" />
         </div>
-        <p>작년</p>
+        <p>지난주</p>
       </div>
     </article>
   );

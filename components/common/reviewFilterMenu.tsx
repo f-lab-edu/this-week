@@ -1,5 +1,6 @@
 import { Fragment, ElementType } from 'react';
 import { Menu, Transition } from '@headlessui/react';
+import Filter from 'components/svgs/filter.svg';
 
 type Item = { label: string; tag: ElementType; status: boolean };
 type Items = {
@@ -12,8 +13,10 @@ const ReviewFilterMenu = ({ items, selectMenu }: Items) => {
     <div className="flex justify-end">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="inline-flex w-full justify-center rounded-md bg-soft-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            Filter
+          <Menu.Button className="inline-flex w-full justify-center rounded-md text-sm font-medium hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+            <div role="button">
+              <Filter width="20px" fill="lightgray" />
+            </div>
           </Menu.Button>
         </div>
         <Transition

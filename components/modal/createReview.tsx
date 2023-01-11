@@ -10,12 +10,10 @@ import CreateButton from 'components/button/createButton';
 const CreateReview = () => {
   const { type } = useWindowSize();
   const modalRef = useRef<HTMLDivElement>(null);
-  const { clicked } = useOutsideClick(modalRef);
+  useOutsideClick(modalRef, () => {
+    closeModal({ element: <CreateReview /> });
+  });
   const { closeModal } = useModal();
-
-  useEffect(() => {
-    if (clicked) closeModal({ element: <CreateReview /> });
-  }, [clicked]);
 
   return (
     <div ref={modalRef}>

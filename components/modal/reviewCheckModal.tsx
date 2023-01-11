@@ -8,13 +8,11 @@ import { useRouter } from 'next/router';
 
 const ReviewCheckModal = () => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const { clicked } = useOutsideClick(modalRef);
+  useOutsideClick(modalRef, () => {
+    closeModal({ element: <ReviewCheckModal /> });
+  });
   const { closeModal } = useModal();
   const router = useRouter();
-
-  useEffect(() => {
-    if (clicked) closeModal({ element: <ReviewCheckModal /> });
-  }, [clicked]);
 
   return (
     <div ref={modalRef}>

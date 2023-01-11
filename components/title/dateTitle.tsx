@@ -10,8 +10,8 @@ const DateTitle = () => {
 ${DAY_OF_WEEK[now.getDay()]}`;
 
   return (
-    <div className="text-lg lg:text-end">
-      <span className="rounded-lg bg-soft-black bg-opacity-20 px-4 py-2 text-white">
+    <div className="font-medium lg:text-end">
+      <span className="rounded-lg bg-soft-black bg-opacity-20 px-4 py-1 text-white">
         {data}
       </span>
     </div>
