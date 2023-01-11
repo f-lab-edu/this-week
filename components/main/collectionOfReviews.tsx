@@ -34,7 +34,7 @@ const CollectionOfReviews = () => {
 
   return (
     <section className="p-6">
-      <div className="flex items-start justify-between pb-5">
+      <div className="flex items-center justify-between pb-5">
         <p className="text-xl font-semibold">회고를 모아봤어요</p>
         <ReviewFilterMenu items={menu} selectMenu={selectMenu} />
       </div>
