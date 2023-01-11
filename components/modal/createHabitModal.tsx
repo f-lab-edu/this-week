@@ -10,12 +10,10 @@ import CreateHabitTemplate from 'components/habit/createHabitTemplate';
 const CreateHabitModal = () => {
   const { type } = useWindowSize();
   const modalRef = useRef<HTMLDivElement>(null);
-  const { clicked } = useOutsideClick(modalRef);
+  useOutsideClick(modalRef, () => {
+    closeModal({ element: <CreateHabitModal /> });
+  });
   const { closeModal } = useModal();
-
-  useEffect(() => {
-    if (clicked) closeModal({ element: <CreateHabitModal /> });
-  }, [clicked]);
 
   return (
     <div ref={modalRef}>

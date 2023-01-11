@@ -29,7 +29,7 @@ const Banner = () => {
   };
   return (
     <div className="bg-[url('/static/background.jpg')] bg-cover p-6">
-      {/* <div className="bg-gradient-to-b from-indigo-400 p-6"> */}
+      {/* </div><div className="bg-gradient-to-b from-main-beige p-6"> */}
       <div className="pb-6 lg:pb-10">
         <CurrentData />
       </div>
@@ -46,7 +46,7 @@ const Banner = () => {
           <CardContainer>
             <button
               onClick={goToReviewPage}
-              className="rounded-lg bg-main-beige px-5 py-3 text-lg font-semibold"
+              className="font-semiboltext-white rounded-lg bg-soft-black bg-opacity-20 px-5 py-3 text-lg font-semibold text-white"
             >
               {thisWeek}주차 회고 쓰기 ✏️
             </button>

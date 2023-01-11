@@ -14,16 +14,14 @@ import useOutsideClick from 'customs/useOutsideClick';
 
 const SideTap = () => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const { clicked } = useOutsideClick(modalRef);
+  useOutsideClick(modalRef, () => {
+    closeModal({ element: <SideTap /> });
+  });
   const { closeModal } = useModal();
 
   const closeSideTap = () => {
     closeModal({ element: <SideTap /> });
   };
-
-  useEffect(() => {
-    if (clicked) closeSideTap();
-  }, [clicked]);
 
   return (
     <div

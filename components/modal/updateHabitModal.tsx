@@ -15,13 +15,10 @@ type Props = {
 const UpdateHabitModal = ({ content, id }: Props) => {
   const { type } = useWindowSize();
   const modalRef = useRef<HTMLDivElement>(null);
-  const { clicked } = useOutsideClick(modalRef);
+  useOutsideClick(modalRef, () => {
+    closeModal({ element: <UpdateHabitModal content={content} id={id} /> });
+  });
   const { closeModal } = useModal();
-
-  useEffect(() => {
-    if (clicked)
-      closeModal({ element: <UpdateHabitModal content={content} id={id} /> });
-  }, [clicked]);
 
   return (
     <div ref={modalRef}>
