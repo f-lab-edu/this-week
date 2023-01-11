@@ -3120,13 +3120,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qs@npm:^6.9.7":
-  version: 6.9.7
-  resolution: "@types/qs@npm:6.9.7"
-  checksum: 7fd6f9c25053e9b5bb6bc9f9f76c1d89e6c04f7707a7ba0e44cc01f17ef5284adb82f230f542c2d5557d69407c9a40f0f3515e8319afd14e1e16b5543ac6cdba
-  languageName: node
-  linkType: hard
-
 "@types/react-dom@npm:18.0.8":
   version: 18.0.8
   resolution: "@types/react-dom@npm:18.0.8"
@@ -7496,7 +7489,6 @@ __metadata:
     "@mui/joy": ^5.0.0-alpha.55
     "@svgr/webpack": ^6.5.1
     "@types/node": 18.11.9
-    "@types/qs": ^6.9.7
     "@types/react": 18.0.25
     "@types/react-dom": 18.0.8
     "@typescript-eslint/eslint-plugin": ^5.42.1

@@ -37,7 +37,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mui/joy", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.0.0-alpha.55"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@types/node", "npm:18.11.9"],\
-            ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.25"],\
             ["@types/react-dom", "npm:18.0.8"],\
             ["@typescript-eslint/eslint-plugin", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.42.1"],\
@@ -4665,15 +4664,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-prop-types-npm-15.7.5-2aa48aa177-5b43b8b154.zip/node_modules/@types/prop-types/",\
           "packageDependencies": [\
             ["@types/prop-types", "npm:15.7.5"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@types/qs", [\
-        ["npm:6.9.7", {\
-          "packageLocation": "./.yarn/cache/@types-qs-npm-6.9.7-4a3e6ca0d0-7fd6f9c250.zip/node_modules/@types/qs/",\
-          "packageDependencies": [\
-            ["@types/qs", "npm:6.9.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10066,7 +10056,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mui/joy", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.0.0-alpha.55"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@types/node", "npm:18.11.9"],\
-            ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.25"],\
             ["@types/react-dom", "npm:18.0.8"],\
             ["@typescript-eslint/eslint-plugin", "virtual:e71b9f5a0ccdc45efaf9d3ddbf2bf909e3396797800dd56c405ebe5cc8ddc0f72d79d996a090a8f8ab2b46116852eeb5c98effd6ae76f24d2c39bd202322d591#npm:5.42.1"],\
