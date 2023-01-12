@@ -1,8 +1,26 @@
-import React from 'react';
+import {
+  getWeek,
+  getStartDateOfThisWeek,
+  getEndDateOfThisWeek,
+} from 'lib/date';
 
 const WeekNumber = () => {
   return (
-    <p className="text-xl text-sub-text">45주차, 2022.11.14 ~ 2022.11.20</p>
+    <p className="text-xl text-sub-text">{`${getWeek}주차, ${getStartDateOfThisWeek.year()}.${(
+      getStartDateOfThisWeek.month() + 1
+    )
+      .toString()
+      .padStart(2, '0')}.${getStartDateOfThisWeek
+      .date()
+      .toString()
+      .padStart(2, '0')} ~ ${getEndDateOfThisWeek.year()}.${(
+      getEndDateOfThisWeek.month() + 1
+    )
+      .toString()
+      .padStart(2, '0')}.${getEndDateOfThisWeek
+      .date()
+      .toString()
+      .padStart(2, '0')}`}</p>
   );
 };
 
