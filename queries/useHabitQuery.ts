@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { AxiosError } from 'axios';
 import { getHabits, createHabit, deleteHabit, updateHabit } from 'lib/apis';
-import { getDay } from 'lib/date';
+import { getDayShortForm } from 'lib/date';
 
 type RepeatDow = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
@@ -53,7 +53,7 @@ export const useGetTodayHabitQuery = () => {
     {
       suspense: true,
       select: (habits) =>
-        habits.filter((habit) => habit.repeatDow.includes(getDay())),
+        habits.filter((habit) => habit.repeatDow.includes(getDayShortForm())),
     },
   );
   return habitData;

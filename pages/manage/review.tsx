@@ -1,68 +1,145 @@
+import { useState } from 'react';
+
 import Title from 'components/title/title';
 import CurrentData from 'components/title/dateTitle';
 import { REVIEW_TITLE } from 'constants/title/habitTitle';
 import MainContainer from 'components/container/mainContainer';
 import WeekNumber from 'components/title/weekNumber';
-import Plus from 'components/svgs/plus.svg';
 
-import CreateHabitModal from 'components/modal/createHabitModal';
+import BottomFix from 'components/container/bottomFix';
+import SaveReviewButton from 'components/button/saveReviewButton';
+
 import useWindowSize from 'customs/useWindowSize';
 
-import useModal from 'customs/useModal';
-import HasStatisticSummaryContainer from 'components/container/hasStatisticSummaryContainer';
+import { getWeek, getMonth, isReviewDay, getYear } from 'lib/date';
+import { useCreateReviewMutation } from 'queries/useReviewQuery';
+type FourLName = 'liked' | 'learned' | 'lacked' | 'longedFor';
+type HandleFourLTextProps = {
+  name: FourLName;
+  value: string;
+};
 
 const Review = () => {
-  const { openModal } = useModal();
+  const createReviewMutation = useCreateReviewMutation();
   const { type } = useWindowSize();
+  const [fourLText, setFourLText] = useState({
+    liked: '',
+    learned: '',
+    lacked: '',
+    longedFor: '',
+  });
 
-  const handleModal = () => {
-    openModal({ element: <CreateHabitModal />, props: {} });
+  const saveReview = () => {
+    createReviewMutation.mutate({
+      data: {
+        week: getWeek,
+        month: getMonth,
+        year: getYear,
+        liked: fourLText.liked,
+        learned: fourLText.learned,
+        lacked: fourLText.lacked,
+        longedfor: fourLText.longedFor,
+        tag: null,
+        rating: 5,
+      },
+    });
+    setFourLText({ liked: '', learned: '', lacked: '', longedFor: '' });
+  };
+  const handleFourLText = ({ name, value }: HandleFourLTextProps) => {
+    setFourLText({ ...fourLText, [name]: value });
   };
 
   return (
-    <main>
+    <main className="pb-28">
       <div className="lg:flex lg:flex-col lg:gap-2">
-        <Title text={REVIEW_TITLE[type]} />
+        <Title
+          text={
+            isReviewDay
+              ? REVIEW_TITLE['onTime'][type]
+              : REVIEW_TITLE['offTime'][type]
+          }
+        />
         <WeekNumber />
       </div>
       <section className="py-5">
-        <h2 className="py-2 text-xl">이건 잘했어요.</h2>
+        <h2 className="py-2 text-xl">잘했어요</h2>
         <textarea
-          name="good"
-          id="good"
-          cols={50}
+          name="liked"
+          id="liked"
+          cols={30}
           rows={10}
+          value={fourLText.liked}
+          onChange={(event) => {
+            const { name, value } = event.target as {
+              name: FourLName;
+              value: string;
+            };
+            handleFourLText({ name, value });
+          }}
+          className="w-full rounded-lg bg-main-beige p-4 leading-6 outline-none"
+        ></textarea>
+      </section>
+      <section className="pb-5">
+        <h2 className="py-2 text-xl">배웠어요</h2>
+        <textarea
+          name="learned"
+          id="learned"
+          cols={30}
+          rows={10}
+          value={fourLText.learned}
+          onChange={(event) => {
+            const { name, value } = event.target as {
+              name: FourLName;
+              value: string;
+            };
+            handleFourLText({ name, value });
+          }}
           className="w-full rounded-lg bg-main-beige p-4 outline-none"
         ></textarea>
       </section>
       <section className="pb-5">
-        <h2 className="py-2 text-xl">이건 조금 아쉬워요.</h2>
+        <h2 className="py-2 text-xl">부족했어요</h2>
         <textarea
-          name="bad"
-          id="bad"
+          name="lacked"
+          id="lacked"
           cols={30}
           rows={10}
+          value={fourLText.lacked}
+          onChange={(event) => {
+            const { name, value } = event.target as {
+              name: FourLName;
+              value: string;
+            };
+            handleFourLText({ name, value });
+          }}
           className="w-full rounded-lg bg-main-beige p-4 outline-none"
         ></textarea>
       </section>
       <section className="pb-5">
-        <h2 className="py-2 text-xl">다음주엔 이렇게 할 거예요.</h2>
+        <h2 className="py-2 text-xl">다음주는</h2>
         <textarea
-          name="next"
-          id="next"
+          name="longedFor"
+          id="longedFor"
           cols={30}
           rows={10}
+          value={fourLText.longedFor}
+          onChange={(event) => {
+            const { name, value } = event.target as {
+              name: FourLName;
+              value: string;
+            };
+            handleFourLText({ name, value });
+          }}
           className="w-full rounded-lg bg-main-beige p-4 outline-none"
         ></textarea>
       </section>
-      <div className="py-5">
-        <button
-          onClick={handleModal}
-          className="flex h-20 w-full items-center justify-center rounded-lg bg-main-border"
-        >
-          <Plus width="25px" height="25px" fill="#FFFFFF" />
-        </button>
-      </div>
+      <section>
+        <h2 className="py-2 text-xl">총점</h2>
+      </section>
+      <section>
+        <h2 className="py-2 text-xl">태그</h2>
+      </section>
+      <BottomFix button={<SaveReviewButton onClick={saveReview} />} />
     </main>
   );
 };
@@ -74,7 +151,7 @@ const Statistic = () => {
         <div className="pb-4 lg:pb-10">
           <CurrentData />
         </div>
-        <HasStatisticSummaryContainer main={<Review />} />
+        <Review />
       </MainContainer>
     </div>
   );
