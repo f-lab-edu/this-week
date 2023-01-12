@@ -9,6 +9,7 @@ export const getDayShortForm = (): RepeatDow => {
 };
 
 export const getWeek = dayjs().week();
+export const getMonth = dayjs().month() + 1;
 export const getStartDateOfThisWeek = dayjs().weekday(1);
 export const getEndDateOfThisWeek = dayjs().weekday(7);
 export const getYear = dayjs().year();

@@ -11,8 +11,8 @@ import SaveReviewButton from 'components/button/saveReviewButton';
 
 import useWindowSize from 'customs/useWindowSize';
 
-import { isReviewDay } from 'lib/date';
-
+import { getWeek, getMonth, isReviewDay, getYear } from 'lib/date';
+import { useCreateReviewMutation } from 'queries/useReviewQuery';
 type FourLName = 'liked' | 'learned' | 'lacked' | 'longedFor';
 type HandleFourLTextProps = {
   name: FourLName;
@@ -20,6 +20,7 @@ type HandleFourLTextProps = {
 };
 
 const Review = () => {
+  const createReviewMutation = useCreateReviewMutation();
   const { type } = useWindowSize();
   const [fourLText, setFourLText] = useState({
     liked: '',
@@ -28,7 +29,22 @@ const Review = () => {
     longedFor: '',
   });
 
-  const saveReview = () => {};
+  const saveReview = () => {
+    createReviewMutation.mutate({
+      data: {
+        week: getWeek,
+        month: getMonth,
+        year: getYear,
+        liked: fourLText.liked,
+        learned: fourLText.learned,
+        lacked: fourLText.lacked,
+        longedfor: fourLText.longedFor,
+        tag: null,
+        rating: 5,
+      },
+    });
+    setFourLText({ liked: '', learned: '', lacked: '', longedFor: '' });
+  };
   const handleFourLText = ({ name, value }: HandleFourLTextProps) => {
     setFourLText({ ...fourLText, [name]: value });
   };
@@ -116,6 +132,12 @@ const Review = () => {
           }}
           className="w-full rounded-lg bg-main-beige p-4 outline-none"
         ></textarea>
+      </section>
+      <section>
+        <h2 className="py-2 text-xl">총점</h2>
+      </section>
+      <section>
+        <h2 className="py-2 text-xl">태그</h2>
       </section>
       <BottomFix button={<SaveReviewButton onClick={saveReview} />} />
     </main>
