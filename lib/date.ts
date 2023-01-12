@@ -17,3 +17,4 @@ export const getLastWeek = dayjs().add(-1, 'week').week();
 export const getYearOfLastWeek = dayjs().add(-1, 'week').year();
 export const getLastMonth = dayjs().add(-1, 'month').month() + 1;
 export const getYearOfLastMonth = dayjs().add(-1, 'month').year();
+export const isReviewDay = dayjs().weekday() === 7;
