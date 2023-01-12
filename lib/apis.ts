@@ -1,5 +1,4 @@
 import axiosInstance from 'lib/axiosInstance';
-import qs from 'qs';
 
 import { HabitType } from 'queries/useHabitQuery';
 type RepeatDow = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';

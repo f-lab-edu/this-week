@@ -9,6 +9,7 @@ export const getDay = (): RepeatDow => {
 };
 
 export const getWeek = dayjs().week();
+export const getYear = dayjs().year();
 export const getDayNumber = dayjs().day();
 export const getLastWeek = dayjs().add(-1, 'week').week();
 export const getYearOfLastWeek = dayjs().add(-1, 'week').year();

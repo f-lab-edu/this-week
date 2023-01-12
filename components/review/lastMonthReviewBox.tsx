@@ -3,17 +3,22 @@ import Folder from 'components/svgs/folder.svg';
 import { useGetLastMonthReviewQuery } from 'queries/useReviewQuery';
 
 const LastMonthReviewBox = () => {
-  const data = useGetLastMonthReviewQuery();
+  const { lastMonthReviews, isExist } = useGetLastMonthReviewQuery();
   return (
-    <div className="mb-2 flex h-40 flex-col items-center justify-center gap-4 rounded-lg bg-main-red p-5 text-white">
-      {data ? (
+    <div className="mb-2 flex h-40 flex-col items-center justify-center gap-4 rounded-lg bg-main-red p-2 text-white">
+      {lastMonthReviews && isExist ? (
         <ul>
-          {data.map((item) => {
+          {lastMonthReviews.map((review) => {
             const {
               attributes: { week, month, year },
               id,
-            } = item;
-            return <li key={id}>{`${year}/${month}/${week}의 회고`}</li>;
+            } = review;
+            return (
+              <li
+                key={id}
+                className="py-1 font-normal"
+              >{`📁 ${year}년 ${month}월 ${week}주차`}</li>
+            );
           })}
         </ul>
       ) : (
