@@ -35,7 +35,9 @@ export const getTodayHabits = () =>
 // ----------------------------------------------
 type Review = {
   id: number;
-  week: string;
+  week: number;
+  month: number;
+  year: number;
   liked: string;
   learned: string;
   lacked: string;
@@ -47,7 +49,9 @@ type Review = {
 };
 type NewReview = {
   data: {
-    week: string;
+    week: number;
+    month: number;
+    year: number;
     liked: string;
     learned: string;
     lacked: string;
@@ -59,7 +63,9 @@ type NewReview = {
 type DeleteReview = {
   id: number;
 };
-export const getReviews = () => axiosInstance.get('/api/reviews');
+export const getReviews = async (query?: string) =>
+  await axiosInstance.get(`/api/reviews?${query}`);
+
 export const createRiview = async (newReview: NewReview) =>
   await axiosInstance.post('/api/reviews', newReview);
 export const updateReview = async (config: Review) => {
