@@ -22,11 +22,11 @@ const Review = () => {
   return (
     <main>
       <div className="lg:flex lg:flex-col lg:gap-2">
-        <Title text={REVIEW_TITLE[type]} />
+        <Title text={REVIEW_TITLE['offTime'][type]} />
         <WeekNumber />
       </div>
       <section className="py-5">
-        <h2 className="py-2 text-xl">이건 잘했어요.</h2>
+        <h2 className="py-2 text-xl">좋았어요</h2>
         <textarea
           name="good"
           id="good"
@@ -36,7 +36,7 @@ const Review = () => {
         ></textarea>
       </section>
       <section className="pb-5">
-        <h2 className="py-2 text-xl">이건 조금 아쉬워요.</h2>
+        <h2 className="py-2 text-xl">배웠어요</h2>
         <textarea
           name="bad"
           id="bad"
@@ -46,7 +46,17 @@ const Review = () => {
         ></textarea>
       </section>
       <section className="pb-5">
-        <h2 className="py-2 text-xl">다음주엔 이렇게 할 거예요.</h2>
+        <h2 className="py-2 text-xl">부족했어요</h2>
+        <textarea
+          name="next"
+          id="next"
+          cols={30}
+          rows={10}
+          className="w-full rounded-lg bg-main-beige p-4 outline-none"
+        ></textarea>
+      </section>
+      <section className="pb-5">
+        <h2 className="py-2 text-xl">다음주는 이렇게 할래요</h2>
         <textarea
           name="next"
           id="next"
