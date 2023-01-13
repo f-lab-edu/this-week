@@ -82,6 +82,7 @@ const Review = () => {
             type="text"
             value={newTag}
             onChange={(event) => setNewTag(() => event.target.value)}
+            placeholder="태그를 입력하세요."
             className="flex w-full items-center justify-between rounded-lg bg-main-border p-2 px-4 outline-main-blue"
           ></input>
           <button
