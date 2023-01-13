@@ -28,6 +28,10 @@ export const REVIEW_TITLE = {
     sm: '미리 회고를 작성해보세요',
     lg: '미리 회고를 작성해보세요',
   },
+  update: {
+    sm: '회고를 수정해보세요',
+    lg: '회고를 수정해보세요',
+  },
 };
 
 export const USER_TITLE = { sm: '유저 정보', lg: '유저 정보' };

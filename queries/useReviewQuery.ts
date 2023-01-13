@@ -1,6 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { AxiosError } from 'axios';
-import { getReviews, createRiview, deleteReview, updateReview } from 'lib/apis';
+import {
+  getReview,
+  getReviews,
+  createRiview,
+  deleteReview,
+  updateReview,
+} from 'lib/apis';
 import {
   getWeek,
   getYear,
@@ -73,7 +79,7 @@ const useGetReviewsQuery = (
   { recent = 0 }: GetReviewsQueryProps = { recent: 0 },
 ) => {
   const { data: reviews, isSuccess } = useQuery<ReviewType[], AxiosError>(
-    reviewKeys.reviews,
+    reviewKeys.review,
     async () => {
       const { data } = await getReviews();
       return recent > 0 ? data.data.slice(-recent) : data.data;
@@ -143,6 +149,23 @@ export const useGetThisWeekReviewQuery = () => {
   );
   const isExist = isSuccess && thisWeekReview && thisWeekReview.length > 0;
   return { thisWeekReview, isSuccess, isExist };
+};
+
+export const useGetReviewQuery = (reviewId: string) => {
+  const { data: reviewData, isSuccess } = useQuery<ReviewType, AxiosError>(
+    reviewKeys.review,
+    async () => {
+      console.log(reviewId);
+      const { data } = await getReview(reviewId);
+      return data.data;
+    },
+    {
+      enabled: !!reviewId,
+      suspense: true,
+    },
+  );
+  const isExist = isSuccess && reviewData;
+  return { reviewData, isSuccess, isExist };
 };
 
 export const useCreateReviewMutation = () => {
