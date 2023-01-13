@@ -1,6 +1,7 @@
 import axiosInstance from 'lib/axiosInstance';
 
 import { HabitType } from 'queries/useHabitQuery';
+import { Tag } from 'queries/useReviewQuery';
 type RepeatDow = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
 interface GetHabitsResponse {
@@ -43,7 +44,7 @@ type Review = {
   lacked: string;
   longedfor: string;
   tag: {
-    data: string[] | null;
+    data: Tag[] | null;
   };
   rating: number;
 };
@@ -56,7 +57,7 @@ type NewReview = {
     learned: string;
     lacked: string;
     longedfor: string;
-    tag: string[] | null;
+    tag: { data: Tag[] | null };
     rating: number;
   };
 };

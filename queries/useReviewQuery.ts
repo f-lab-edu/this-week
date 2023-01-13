@@ -17,6 +17,17 @@ export const reviewKeys = {
   lastWeekReview: ['lastWeekReviews'],
 };
 
+export type BackgroundColor = 'main-pink-10' | 'main-red-10' | 'main-blue-10';
+export type TextColor = 'main-pink' | 'main-red' | 'main-blue';
+export type Tag = {
+  id: number;
+  name: string;
+  color: {
+    text: TextColor;
+    bg: BackgroundColor;
+  };
+};
+
 // Todo: OAS
 export type ReviewType = {
   id: number;
@@ -28,13 +39,11 @@ export type ReviewType = {
     learned: string;
     lacked: string;
     longedfor: string;
-    tag: {
-      data: string[] | null;
-    };
-    rating: number;
-    publishedAt: string;
-    updatedAt: string;
+    tag: { data: Tag[] | null };
   };
+  rating: number;
+  publishedAt: string;
+  updatedAt: string;
 };
 
 export type DeleteHabitType = {
@@ -50,9 +59,7 @@ export type UpdateConfigType = {
   learned: string;
   lacked: string;
   longedfor: string;
-  tag: {
-    data: string[] | null;
-  };
+  tag: { data: Tag[] | null };
   rating: number;
   publishedAt: string;
   updatedAt: string;
