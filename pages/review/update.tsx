@@ -26,7 +26,7 @@ type HandleFourLTextProps = {
   value: string;
 };
 
-const Review = () => {
+const UpdateReview = () => {
   const router = useRouter();
   const createReviewMutation = useCreateReviewMutation();
   const { type } = useWindowSize();
@@ -205,7 +205,7 @@ const Statistic = () => {
         <div className="pb-4 lg:pb-10">
           <CurrentData />
         </div>
-        <Review />
+        <UpdateReview />
       </MainContainer>
     </div>
   );

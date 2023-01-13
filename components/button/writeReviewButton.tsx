@@ -14,12 +14,12 @@ const WriteReviewButton = () => {
     if (getDayNumber !== 0) {
       return openModal({ element: <ReviewCheckModal /> });
     }
-    return router.push('/manage/review');
+    return router.push('/review');
   };
   return (
     <button
       onClick={goToReviewPage}
-      className="font-semiboltext-white w-full rounded-lg bg-main-blue px-5 py-3 text-lg font-semibold text-white"
+      className="w-full rounded-lg bg-main-blue px-5 py-3 text-lg font-semibold font-semibold text-white text-white"
     >
       {getWeek}주차 회고 쓰기 ✏️
     </button>

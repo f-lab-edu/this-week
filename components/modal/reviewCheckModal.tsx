@@ -31,7 +31,7 @@ const ReviewCheckModal = () => {
             </button>
             <button
               onClick={() => {
-                router.push('/manage/review');
+                router.push('/review');
                 closeModal({ element: <ReviewCheckModal /> });
               }}
               className="w-full rounded-xl border-black bg-main-blue px-6 py-3 text-white"

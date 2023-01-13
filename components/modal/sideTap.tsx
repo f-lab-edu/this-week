@@ -36,7 +36,7 @@ const SideTap = () => {
             <button>디스위크</button>
           </li>
         </Link>
-        {/* <Link href={`/manage/habit`}>
+        {/* <Link href={`/habit`}>
           <li className="flex items-center gap-4" onClick={closeSideTap}>
             <BoxOpen width="25px" height="25px" fill="#808080" />
             <button>습관 관리</button>
@@ -48,7 +48,7 @@ const SideTap = () => {
             <button>습관 데이터</button>
           </li>
         </Link> */}
-        {/* <Link href={`/manage/review`}>
+        {/* <Link href={`/review`}>
           <li className="flex items-center gap-4" onClick={closeSideTap}>
             <SquareCheck width="25px" height="25px" fill="#808080" />
             <button>지난 회고</button>
