@@ -19,7 +19,7 @@ import { ReviewType } from 'queries/useReviewQuery';
 
 import { getWeek, getMonth, getYear } from 'lib/date';
 import {
-  useCreateReviewMutation,
+  useUpdateReviewMutation,
   Tag,
   TextColor,
   BackgroundColor,
@@ -48,6 +48,7 @@ const UpdateReviewForm = () => {
     },
   );
 
+  const { id: reviewId } = reviewData as { id: number };
   const { liked, learned, lacked, longedfor, tag } = reviewData?.attributes as {
     liked: string;
     learned: string;
@@ -56,7 +57,7 @@ const UpdateReviewForm = () => {
     tag: { data: Tag[] | null };
   };
 
-  const createReviewMutation = useCreateReviewMutation();
+  const updateReviewMutation = useUpdateReviewMutation();
   const { type } = useWindowSize();
   const [fourLText, setFourLText] = useState({
     liked: liked || '',
@@ -68,18 +69,16 @@ const UpdateReviewForm = () => {
   const [tags, setTags] = useState<Tag[]>(tag.data || []);
 
   const saveReview = () => {
-    createReviewMutation.mutate({
-      data: {
-        week: getWeek,
-        month: getMonth,
-        year: getYear,
-        liked: fourLText.liked,
-        learned: fourLText.learned,
-        lacked: fourLText.lacked,
-        longedfor: fourLText.longedFor,
-        tag: { data: tags },
-        rating: 0,
-      },
+    updateReviewMutation.mutate({
+      id: reviewId,
+      week: getWeek,
+      month: getMonth,
+      year: getYear,
+      liked: fourLText.liked,
+      learned: fourLText.learned,
+      lacked: fourLText.lacked,
+      longedfor: fourLText.longedFor,
+      tag: { data: tags },
     });
     router.push('/');
   };

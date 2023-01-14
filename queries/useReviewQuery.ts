@@ -65,9 +65,6 @@ export type UpdateConfigType = {
   lacked: string;
   longedfor: string;
   tag: { data: Tag[] | null };
-  rating: number;
-  publishedAt: string;
-  updatedAt: string;
 };
 
 interface GetReviewsQueryProps {
@@ -185,7 +182,7 @@ export const useDeleteReviewMutation = () => {
   });
 };
 
-export const useUpdateHabitMutation = () => {
+export const useUpdateReviewMutation = () => {
   const queryClient = useQueryClient();
   return useMutation((config: UpdateConfigType) => updateReview(config), {
     onSuccess: () => {
