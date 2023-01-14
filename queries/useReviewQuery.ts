@@ -1,6 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { AxiosError } from 'axios';
-import { getReviews, createRiview, deleteReview, updateReview } from 'lib/apis';
+import {
+  getReview,
+  getReviews,
+  createRiview,
+  deleteReview,
+  updateReview,
+} from 'lib/apis';
 import {
   getWeek,
   getYear,
@@ -17,6 +23,17 @@ export const reviewKeys = {
   lastWeekReview: ['lastWeekReviews'],
 };
 
+export type BackgroundColor = 'main-pink-10' | 'main-red-10' | 'main-blue-10';
+export type TextColor = 'main-pink' | 'main-red' | 'main-blue';
+export type Tag = {
+  id: number;
+  name: string;
+  color: {
+    text: TextColor;
+    bg: BackgroundColor;
+  };
+};
+
 // Todo: OAS
 export type ReviewType = {
   id: number;
@@ -28,13 +45,11 @@ export type ReviewType = {
     learned: string;
     lacked: string;
     longedfor: string;
-    tag: {
-      data: string[] | null;
-    };
-    rating: number;
-    publishedAt: string;
-    updatedAt: string;
+    tag: { data: Tag[] | null };
   };
+  rating: number;
+  publishedAt: string;
+  updatedAt: string;
 };
 
 export type DeleteHabitType = {
@@ -50,9 +65,7 @@ export type UpdateConfigType = {
   learned: string;
   lacked: string;
   longedfor: string;
-  tag: {
-    data: string[] | null;
-  };
+  tag: { data: Tag[] | null };
   rating: number;
   publishedAt: string;
   updatedAt: string;
@@ -66,7 +79,7 @@ const useGetReviewsQuery = (
   { recent = 0 }: GetReviewsQueryProps = { recent: 0 },
 ) => {
   const { data: reviews, isSuccess } = useQuery<ReviewType[], AxiosError>(
-    reviewKeys.reviews,
+    reviewKeys.review,
     async () => {
       const { data } = await getReviews();
       return recent > 0 ? data.data.slice(-recent) : data.data;
@@ -136,6 +149,23 @@ export const useGetThisWeekReviewQuery = () => {
   );
   const isExist = isSuccess && thisWeekReview && thisWeekReview.length > 0;
   return { thisWeekReview, isSuccess, isExist };
+};
+
+export const useGetReviewQuery = (reviewId: string) => {
+  const { data: reviewData, isSuccess } = useQuery<ReviewType, AxiosError>(
+    reviewKeys.review,
+    async () => {
+      console.log(reviewId);
+      const { data } = await getReview(reviewId);
+      return data.data;
+    },
+    {
+      enabled: !!reviewId,
+      suspense: true,
+    },
+  );
+  const isExist = isSuccess && reviewData;
+  return { reviewData, isSuccess, isExist };
 };
 
 export const useCreateReviewMutation = () => {

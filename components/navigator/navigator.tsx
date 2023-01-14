@@ -24,13 +24,13 @@ const Navigator = () => {
         <Link className="hidden lg:block" href={`/`}>
           <p className="pr-4 text-xl font-bold">디스위크</p>
         </Link>
-        <Link className="hidden lg:block" href={`/manage/habit`}>
+        <Link className="hidden lg:block" href={`/habit`}>
           <p>습관관리</p>
         </Link>
         <Link className="hidden lg:block" href={`/statistic`}>
           <p>습관데이터</p>
         </Link>
-        <Link className="hidden lg:block" href={`/manage/review`}>
+        <Link className="hidden lg:block" href={`/review`}>
           <p>회고관리</p>
         </Link>
       </div>
