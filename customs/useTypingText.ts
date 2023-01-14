@@ -21,7 +21,7 @@ const useTypingText = (content: string) => {
 
         return result;
       });
-    }, 100);
+    }, 25);
 
     return () => {
       clearInterval(typingInterval);
