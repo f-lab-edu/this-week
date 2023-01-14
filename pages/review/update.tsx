@@ -5,6 +5,8 @@ import { Suspense } from 'react';
 import MainContainer from 'components/container/mainContainer';
 import UpdateReviewForm from 'components/review/updateReviewForm';
 
+import Spinner from 'components/common/spinner';
+
 // import AsyncBoundary from 'components/error/asyncBoundary';
 
 const ReviewUpdate = () => {
@@ -15,7 +17,7 @@ const ReviewUpdate = () => {
           <CurrentData />
         </div>
         <Suspense
-          fallback={<div>Loading...</div>}
+          fallback={<Spinner />}
           // pendingFallback={<div>Loading...</div>}
           // rejectedFallback={() => <div>Error</div>}
         >
