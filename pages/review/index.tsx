@@ -50,7 +50,6 @@ const CreateReview = () => {
         lacked: fourLText.lacked,
         longedfor: fourLText.longedFor,
         tag: { data: tags },
-        rating: 0,
       },
     });
     router.push('/');
@@ -112,7 +111,7 @@ const CreateReview = () => {
             const { bg, text } = tag.color;
             return (
               <li
-                key={tag.id}
+                key={tag.name}
                 className={`inline rounded-2xl ${bg} px-4 py-2 ${text}`}
               >
                 {tag.name}

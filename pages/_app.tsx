@@ -23,13 +23,13 @@ export default function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <ModalProvider>
-          <Navigator />
           <AsyncBoundary
             pendingFallback={<Spinner />}
             rejectedFallback={({ error, reset }) => (
               <ErrorAlert error={error} reset={reset} />
             )}
           >
+            <Navigator />
             <Component {...pageProps} />
             <Modal />
           </AsyncBoundary>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { AxiosError } from 'axios';
@@ -26,7 +26,7 @@ import {
 } from 'queries/useReviewQuery';
 
 import { getReview } from 'lib/apis';
-type FourLName = 'liked' | 'learned' | 'lacked' | 'longedFor';
+type FourLName = 'liked' | 'learned' | 'lacked' | 'longedfor';
 type HandleFourLTextProps = {
   name: FourLName;
   value: string;
@@ -48,36 +48,41 @@ const UpdateReviewForm = () => {
     },
   );
 
-  const { id: reviewId } = reviewData as { id: number };
-  const { liked, learned, lacked, longedfor, tag } = reviewData?.attributes as {
-    liked: string;
-    learned: string;
-    lacked: string;
-    longedfor: string;
-    tag: { data: Tag[] | null };
-  };
-
   const updateReviewMutation = useUpdateReviewMutation();
   const { type } = useWindowSize();
   const [fourLText, setFourLText] = useState({
-    liked: liked || '',
-    learned: learned || '',
-    lacked: lacked || '',
-    longedFor: longedfor || '',
+    liked: '',
+    learned: '',
+    lacked: '',
+    longedfor: '',
   });
   const [newTag, setNewTag] = useState('');
-  const [tags, setTags] = useState<Tag[]>(tag.data || []);
+  const [tags, setTags] = useState<Tag[]>([]);
+
+  // Todo: useEffect 없앨 수 있는 방법은 없을까?
+  useEffect(() => {
+    if (reviewData) {
+      const { liked, learned, lacked, longedfor, tag } = reviewData.attributes;
+      setFourLText({
+        liked,
+        learned,
+        lacked,
+        longedfor,
+      });
+      setTags(tag.data || []);
+    }
+  }, [reviewData]);
 
   const saveReview = () => {
     updateReviewMutation.mutate({
-      id: reviewId,
+      id: Number(id),
       week: getWeek,
       month: getMonth,
       year: getYear,
       liked: fourLText.liked,
       learned: fourLText.learned,
       lacked: fourLText.lacked,
-      longedfor: fourLText.longedFor,
+      longedfor: fourLText.longedfor,
       tag: { data: tags },
     });
     router.push('/');
@@ -199,11 +204,11 @@ const UpdateReviewForm = () => {
       <section className="pb-5">
         <h2 className="py-2 text-xl">다음주는</h2>
         <textarea
-          name="longedFor"
-          id="longedFor"
+          name="longedfor"
+          id="longedfor"
           cols={30}
           rows={10}
-          value={fourLText.longedFor}
+          value={fourLText.longedfor}
           onChange={(event) => {
             const { name, value } = event.target as {
               name: FourLName;
