@@ -66,7 +66,7 @@ type DeleteReview = {
 };
 export const getReviews = async (query?: string) =>
   await axiosInstance.get(`/api/reviews?${query}`);
-export const getReview = async (id: string) =>
+export const getReview = async (id: string | string[] | undefined) =>
   await axiosInstance.get(`/api/reviews/${id}`);
 export const createRiview = async (newReview: NewReview) =>
   await axiosInstance.post('/api/reviews', newReview);

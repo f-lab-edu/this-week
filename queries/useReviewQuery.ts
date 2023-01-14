@@ -26,7 +26,6 @@ export const reviewKeys = {
 export type BackgroundColor = 'main-pink-10' | 'main-red-10' | 'main-blue-10';
 export type TextColor = 'main-pink' | 'main-red' | 'main-blue';
 export type Tag = {
-  id: number;
   name: string;
   color: {
     text: TextColor;

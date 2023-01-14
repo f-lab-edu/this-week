@@ -3,15 +3,14 @@ import ErrorBoundary from 'components/error/errorBoundary';
 
 import { QueryErrorResetBoundary } from 'react-query';
 
+type RejectedFallbackProps = {
+  error: Error;
+  reset: () => void;
+};
+
 interface Props {
   pendingFallback: ReactElement;
-  rejectedFallback: ({
-    error,
-    reset,
-  }: {
-    error: Error;
-    reset: () => void;
-  }) => ReactElement;
+  rejectedFallback: ({ error, reset }: RejectedFallbackProps) => ReactElement;
   children: ReactNode;
 }
 
