@@ -48,19 +48,24 @@ const UpdateReviewForm = () => {
     },
   );
 
+  const { liked, learned, lacked, longedfor, tag } = reviewData?.attributes as {
+    liked: string;
+    learned: string;
+    lacked: string;
+    longedfor: string;
+    tag: { data: Tag[] | null };
+  };
+
   const createReviewMutation = useCreateReviewMutation();
   const { type } = useWindowSize();
   const [fourLText, setFourLText] = useState({
-    liked: '',
-    learned: '',
-    lacked: '',
-    longedFor: '',
+    liked: liked || '',
+    learned: learned || '',
+    lacked: lacked || '',
+    longedFor: longedfor || '',
   });
   const [newTag, setNewTag] = useState('');
-  const [tags, setTags] = useState<Tag[]>([]);
-
-  console.log(reviewData);
-  // console.log(tags);
+  const [tags, setTags] = useState<Tag[]>(tag.data || []);
 
   const saveReview = () => {
     createReviewMutation.mutate({
