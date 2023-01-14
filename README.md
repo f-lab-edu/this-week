@@ -22,6 +22,7 @@
 5. Suspense, Error Boundary를 통해 예외사항 선언적으로 관리하기
 6. Headless CMS (Strapi) 사용
 7. 기획 변경 이유와 전략
+8. 리뷰 수정 페이지 문제해결 과정 (Suspense, router query ...)
 
 # 업데이트 할 것
 1. 성능 최적화
