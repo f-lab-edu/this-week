@@ -7,6 +7,7 @@ import Modal from 'components/modal/modal';
 import Navigator from 'components/navigator/navigator';
 
 import ErrorAlert from 'components/error/errorAlert';
+import Spinner from 'components/common/spinner';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,18 +22,18 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <AsyncBoundary
-          pendingFallback={<div>Loading...</div>}
-          rejectedFallback={({ error, reset }) => (
-            <ErrorAlert error={error} reset={reset} />
-          )}
-        >
-          <ModalProvider>
+        <ModalProvider>
+          <AsyncBoundary
+            pendingFallback={<Spinner />}
+            rejectedFallback={({ error, reset }) => (
+              <ErrorAlert error={error} reset={reset} />
+            )}
+          >
             <Navigator />
             <Component {...pageProps} />
             <Modal />
-          </ModalProvider>
-        </AsyncBoundary>
+          </AsyncBoundary>
+        </ModalProvider>
       </Hydrate>
     </QueryClientProvider>
   );

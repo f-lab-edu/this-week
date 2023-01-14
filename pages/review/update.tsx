@@ -1,21 +1,25 @@
-import { useRouter } from 'next/router';
-
 import CurrentData from 'components/title/dateTitle';
 
 import MainContainer from 'components/container/mainContainer';
 import UpdateReviewForm from 'components/review/updateReviewForm';
 
-const ReviewUpdate = () => {
-  const router = useRouter();
-  const { id } = router.query;
+import Spinner from 'components/common/spinner';
 
+import AsyncBoundary from 'components/error/asyncBoundary';
+
+const ReviewUpdate = () => {
   return (
     <div className="min-h-screen">
       <MainContainer>
         <div className="pb-4 lg:pb-10">
           <CurrentData />
         </div>
-        <UpdateReviewForm />
+        <AsyncBoundary
+          pendingFallback={<Spinner />}
+          rejectedFallback={() => <div>Error</div>}
+        >
+          <UpdateReviewForm />
+        </AsyncBoundary>
       </MainContainer>
     </div>
   );

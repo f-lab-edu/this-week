@@ -26,7 +26,6 @@ export const reviewKeys = {
 export type BackgroundColor = 'main-pink-10' | 'main-red-10' | 'main-blue-10';
 export type TextColor = 'main-pink' | 'main-red' | 'main-blue';
 export type Tag = {
-  id: number;
   name: string;
   color: {
     text: TextColor;
@@ -66,9 +65,6 @@ export type UpdateConfigType = {
   lacked: string;
   longedfor: string;
   tag: { data: Tag[] | null };
-  rating: number;
-  publishedAt: string;
-  updatedAt: string;
 };
 
 interface GetReviewsQueryProps {
@@ -186,7 +182,7 @@ export const useDeleteReviewMutation = () => {
   });
 };
 
-export const useUpdateHabitMutation = () => {
+export const useUpdateReviewMutation = () => {
   const queryClient = useQueryClient();
   return useMutation((config: UpdateConfigType) => updateReview(config), {
     onSuccess: () => {

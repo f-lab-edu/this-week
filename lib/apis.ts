@@ -46,7 +46,6 @@ type Review = {
   tag: {
     data: Tag[] | null;
   };
-  rating: number;
 };
 type NewReview = {
   data: {
@@ -58,7 +57,6 @@ type NewReview = {
     lacked: string;
     longedfor: string;
     tag: { data: Tag[] | null };
-    rating: number;
   };
 };
 type DeleteReview = {
@@ -71,7 +69,7 @@ export const getReview = async (id: string) =>
 export const createRiview = async (newReview: NewReview) =>
   await axiosInstance.post('/api/reviews', newReview);
 export const updateReview = async (config: Review) => {
-  return await axiosInstance.put('/api/reviews', {
+  return await axiosInstance.put(`/api/reviews/${11}`, {
     data: config,
   });
 };

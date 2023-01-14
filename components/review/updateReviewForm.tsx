@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { AxiosError } from 'axios';
@@ -19,14 +19,14 @@ import { ReviewType } from 'queries/useReviewQuery';
 
 import { getWeek, getMonth, getYear } from 'lib/date';
 import {
-  useCreateReviewMutation,
+  useUpdateReviewMutation,
   Tag,
   TextColor,
   BackgroundColor,
 } from 'queries/useReviewQuery';
 
 import { getReview } from 'lib/apis';
-type FourLName = 'liked' | 'learned' | 'lacked' | 'longedFor';
+type FourLName = 'liked' | 'learned' | 'lacked' | 'longedfor';
 type HandleFourLTextProps = {
   name: FourLName;
   value: string;
@@ -45,36 +45,45 @@ const UpdateReviewForm = () => {
     },
     {
       enabled: !!id,
-      suspense: true,
     },
   );
 
-  console.log(reviewData);
-
-  const createReviewMutation = useCreateReviewMutation();
+  const updateReviewMutation = useUpdateReviewMutation();
   const { type } = useWindowSize();
   const [fourLText, setFourLText] = useState({
     liked: '',
     learned: '',
     lacked: '',
-    longedFor: '',
+    longedfor: '',
   });
   const [newTag, setNewTag] = useState('');
   const [tags, setTags] = useState<Tag[]>([]);
 
+  // Todo: useEffect 없앨 수 있는 방법은 없을까?
+  useEffect(() => {
+    if (reviewData) {
+      const { liked, learned, lacked, longedfor, tag } = reviewData.attributes;
+      setFourLText({
+        liked,
+        learned,
+        lacked,
+        longedfor,
+      });
+      setTags(tag.data || []);
+    }
+  }, [reviewData]);
+
   const saveReview = () => {
-    createReviewMutation.mutate({
-      data: {
-        week: getWeek,
-        month: getMonth,
-        year: getYear,
-        liked: fourLText.liked,
-        learned: fourLText.learned,
-        lacked: fourLText.lacked,
-        longedfor: fourLText.longedFor,
-        tag: { data: tags },
-        rating: 0,
-      },
+    updateReviewMutation.mutate({
+      id: Number(id),
+      week: getWeek,
+      month: getMonth,
+      year: getYear,
+      liked: fourLText.liked,
+      learned: fourLText.learned,
+      lacked: fourLText.lacked,
+      longedfor: fourLText.longedfor,
+      tag: { data: tags },
     });
     router.push('/');
   };
@@ -108,7 +117,6 @@ const UpdateReviewForm = () => {
               setTags(() => [
                 ...tags,
                 {
-                  id: tags.length + 1,
                   name: newTag,
                   color: TAG_BACKGROUND_COLORS[getRandomInt(3)] as {
                     text: TextColor;
@@ -126,11 +134,11 @@ const UpdateReviewForm = () => {
           </button>
         </div>
         <ul className="flex flex-wrap gap-1">
-          {tags.map((tag) => {
+          {tags?.map((tag) => {
             const { bg, text } = tag.color;
             return (
               <li
-                key={tag.id}
+                key={tag.name}
                 className={`inline rounded-2xl ${bg} px-4 py-2 ${text}`}
               >
                 {tag.name}
@@ -196,11 +204,11 @@ const UpdateReviewForm = () => {
       <section className="pb-5">
         <h2 className="py-2 text-xl">다음주는</h2>
         <textarea
-          name="longedFor"
-          id="longedFor"
+          name="longedfor"
+          id="longedfor"
           cols={30}
           rows={10}
-          value={fourLText.longedFor}
+          value={fourLText.longedfor}
           onChange={(event) => {
             const { name, value } = event.target as {
               name: FourLName;
