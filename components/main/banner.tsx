@@ -23,8 +23,8 @@ const Banner = () => {
         )}
       >
         <div>
-          <div className="pb-2">
-            <Title text={MOTIVATION_TITLE[type]} line={16} typing={true} />
+          <div className="h-16 pb-2">
+            <Title text={MOTIVATION_TITLE[type]} typing={true} />
           </div>
         </div>
       </AsyncBoundary>

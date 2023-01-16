@@ -16,11 +16,17 @@ import {
   getLastWeek,
 } from 'lib/date';
 
+type FilteringReview = {
+  year?: number;
+  month?: number;
+  week?: number;
+};
+
 export const reviewKeys = {
-  review: ['review'] as const,
   reviews: ['reviews'] as const,
-  lastMonthReviews: ['lastMonthReviews'],
-  lastWeekReview: ['lastWeekReviews'],
+  review: (id: number) => ['review', id] as const,
+  filteringReview: ({ year, month, week }: FilteringReview) =>
+    ['review', year, month, week] as const,
 };
 
 export type BackgroundColor = 'main-pink-10' | 'main-red-10' | 'main-blue-10';
@@ -75,7 +81,7 @@ const useGetReviewsQuery = (
   { recent = 0 }: GetReviewsQueryProps = { recent: 0 },
 ) => {
   const { data: reviews, isSuccess } = useQuery<ReviewType[], AxiosError>(
-    reviewKeys.review,
+    reviewKeys.reviews,
     async () => {
       const { data } = await getReviews();
       return recent > 0 ? data.data.slice(-recent) : data.data;
@@ -95,7 +101,10 @@ export const useGetLastMonthReviewQuery = () => {
     ReviewType[],
     AxiosError
   >(
-    reviewKeys.lastMonthReviews,
+    reviewKeys.filteringReview({
+      year: getYearOfLastMonth,
+      month: getLastMonth,
+    }),
     async () => {
       const query = `filters[month][$eq]=${getLastMonth}&filters[year][$eq]=${getYearOfLastMonth}`;
       const { data } = await getReviews(query);
@@ -114,7 +123,7 @@ export const useGetLastWeekReviewQuery = () => {
     ReviewType[],
     AxiosError
   >(
-    reviewKeys.lastWeekReview,
+    reviewKeys.filteringReview({ year: getYearOfLastWeek, week: getLastWeek }),
     async () => {
       const query = `filters[week][$eq]=${getLastWeek}&filters[year][$eq]=${getYearOfLastWeek}`;
       const { data } = await getReviews(query);
@@ -133,7 +142,7 @@ export const useGetThisWeekReviewQuery = () => {
     ReviewType[],
     AxiosError
   >(
-    reviewKeys.review,
+    reviewKeys.filteringReview({ year: getYear, week: getWeek }),
     async () => {
       const query = `filters[week][$eq]=${getWeek}&filters[year][$eq]=${getYear}`;
       const { data } = await getReviews(query);
@@ -149,9 +158,8 @@ export const useGetThisWeekReviewQuery = () => {
 
 export const useGetReviewQuery = (reviewId: string) => {
   const { data: reviewData, isSuccess } = useQuery<ReviewType, AxiosError>(
-    reviewKeys.review,
+    reviewKeys.review(Number(reviewId)),
     async () => {
-      console.log(reviewId);
       const { data } = await getReview(reviewId);
       return data.data;
     },

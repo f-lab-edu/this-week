@@ -27,6 +27,7 @@ module.exports = {
         'main-pink': '#F883B8',
         'main-pink-10': '#F883B81A',
         'main-beige': '#FAF3F0',
+        'main-beige-10': '#FAF3F01A',
         'main-beige-60': '#FAF3F099',
         'main-blue': '#425195',
         'main-blue-10': '#4251951A',

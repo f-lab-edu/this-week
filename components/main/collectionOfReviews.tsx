@@ -3,7 +3,7 @@ import { useState } from 'react';
 import PastReview from 'components/review/pastReview';
 import ReviewFilterMenu from 'components/common/reviewFilterMenu';
 
-import Folder from 'components/svgs/folder.svg';
+import Folder from 'components/svgs/folderOpen.svg';
 import Tag from 'components/svgs/tag.svg';
 
 const CollectionOfReviews = () => {

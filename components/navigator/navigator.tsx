@@ -9,7 +9,7 @@ const Navigator = () => {
   const { openModal } = useModal();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 flex h-12 items-center justify-between border-b border-main-border bg-white px-5">
+    <nav className="fixed top-0 left-0 right-0 flex h-12 items-center justify-between px-5 backdrop-blur">
       <div className="flex items-center gap-6">
         <button
           className="lg:hidden"
