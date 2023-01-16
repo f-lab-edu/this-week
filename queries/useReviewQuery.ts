@@ -160,7 +160,6 @@ export const useGetReviewQuery = (reviewId: string) => {
   const { data: reviewData, isSuccess } = useQuery<ReviewType, AxiosError>(
     reviewKeys.review(Number(reviewId)),
     async () => {
-      console.log(reviewId);
       const { data } = await getReview(reviewId);
       return data.data;
     },
@@ -176,8 +175,7 @@ export const useGetReviewQuery = (reviewId: string) => {
 export const useCreateReviewMutation = () => {
   const queryClient = useQueryClient();
   return useMutation(createRiview, {
-    onSuccess: (data) => {
-      console.log(data);
+    onSuccess: () => {
       queryClient.invalidateQueries(reviewKeys.reviews);
     },
   });
