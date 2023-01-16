@@ -9,7 +9,7 @@ const AllReviewBox = () => {
   return (
     <div className="mb-2 grid h-40 grid-cols-2 gap-1">
       {isExist && reviews ? (
-        reviews.map((review, idx) => (
+        reviews.map((review) => (
           <div
             key={review.id}
             className="flex items-center justify-center rounded-lg bg-main-beige text-2xl"
