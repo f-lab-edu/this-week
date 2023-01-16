@@ -1,26 +1,22 @@
-import Folder from 'components/svgs/folder.svg';
+import Folder from 'components/svgs/folderOpen.svg';
+import Rocket from 'components/svgs/rocket.svg';
 
 import useGetReviewsQuery from 'queries/useReviewQuery';
 
 const AllReviewBox = () => {
   const { reviews, isExist } = useGetReviewsQuery({ recent: 4 });
+
   return (
-    <div className="mb-2 flex h-40 flex-col items-center justify-center gap-4 rounded-lg bg-main-beige p-2">
+    <div className="mb-2 grid h-40 grid-cols-2 gap-1">
       {isExist && reviews ? (
-        <ul>
-          {reviews.map((review) => {
-            const {
-              attributes: { week, month, year },
-              id,
-            } = review;
-            return (
-              <li
-                key={id}
-                className="py-1 font-normal"
-              >{`📁 ${year}년 ${month}월 ${week}주차`}</li>
-            );
-          })}
-        </ul>
+        reviews.map((review, idx) => (
+          <div
+            key={review.id}
+            className="flex items-center justify-center rounded-lg bg-main-beige text-2xl"
+          >
+            <Rocket width="25px" height="25px" fill="#0000001A" />
+          </div>
+        ))
       ) : (
         <Folder width="50px" fill="#0000001A" />
       )}
