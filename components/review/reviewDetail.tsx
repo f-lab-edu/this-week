@@ -27,7 +27,7 @@ const ReviewDetail = ({
   tags,
 }: ReviewDetail) => {
   return (
-    <main className="flex flex-col gap-8 py-4">
+    <main className="flex flex-col gap-8 pt-4 pb-16">
       <section className="flex gap-2">
         {tags?.map((tag) => {
           return (
