@@ -1,5 +1,6 @@
+import Image from 'next/image';
+
 import Folder from 'components/svgs/folderOpen.svg';
-import Hippo from 'components/svgs/hippo.svg';
 
 import { useGetLastWeekReviewQuery } from 'queries/useReviewQuery';
 
@@ -10,9 +11,12 @@ const LastWeekReviewBox = () => {
       {isExist && lastWeekReview ? (
         <ul>
           {lastWeekReview.map((review) => (
-            <li key={review.id} className="py-1 font-normal">
-              <Hippo width="50px" fill="#0000001A" />
-            </li>
+            <Image
+              src={`/static/abstract${review.attributes.week}.png`}
+              width="80"
+              height="80"
+              alt="empty"
+            />
           ))}
         </ul>
       ) : (

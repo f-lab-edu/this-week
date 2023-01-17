@@ -1,5 +1,6 @@
+import Image from 'next/image';
+
 import Folder from 'components/svgs/folderOpen.svg';
-import MugHot from 'components/svgs/mugHot.svg';
 
 import { useGetThisWeekReviewQuery } from 'queries/useReviewQuery';
 
@@ -11,7 +12,12 @@ const ThisWeekReviewBox = () => {
         <ul>
           {thisWeekReview.map((review) => (
             <li key={review.id} className="py-1 font-normal">
-              <MugHot width="50px" fill="#0000001A" />
+              <Image
+                src={`/static/abstract${review.attributes.week}.png`}
+                width="80"
+                height="80"
+                alt="empty"
+              />
             </li>
           ))}
         </ul>

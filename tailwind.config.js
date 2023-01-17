@@ -24,8 +24,10 @@ module.exports = {
       colors: {
         'main-red': '#D34157',
         'main-red-10': '#D341571A',
+        'main-red-60': '#D3415799',
         'main-pink': '#F883B8',
         'main-pink-10': '#F883B81A',
+        'main-pink-60': '#F883B899',
         'main-beige': '#FAF3F0',
         'main-beige-10': '#FAF3F01A',
         'main-beige-60': '#FAF3F099',

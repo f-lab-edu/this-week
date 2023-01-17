@@ -31,7 +31,9 @@ const PastReview = () => {
       </Link>
       <Link
         href={
-          isExist && thisWeekReview && thisWeekReview[0] ? '/review/update' : ''
+          isExist && thisWeekReview && thisWeekReview[0]
+            ? '/review/thisweek'
+            : ''
         }
       >
         <div role="button" className="row-span-4 ">
