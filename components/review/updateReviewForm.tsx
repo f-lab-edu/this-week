@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useQuery } from 'react-query';
-import { AxiosError } from 'axios';
 
 import Title from 'components/title/title';
 
@@ -15,17 +13,15 @@ import SaveReviewButton from 'components/button/saveReviewButton';
 
 import useWindowSize from 'customs/useWindowSize';
 
-import { ReviewType } from 'queries/useReviewQuery';
-
 import { getWeek, getMonth, getYear } from 'lib/date';
 import {
+  useGetReviewQuery,
   useUpdateReviewMutation,
   Tag,
   TextColor,
   BackgroundColor,
 } from 'queries/useReviewQuery';
 
-import { getReview } from 'lib/apis';
 type FourLName = 'liked' | 'learned' | 'lacked' | 'longedfor';
 type HandleFourLTextProps = {
   name: FourLName;
@@ -34,19 +30,9 @@ type HandleFourLTextProps = {
 
 const UpdateReviewForm = () => {
   const router = useRouter();
-  const { id } = router.query as { id: string };
+  const { id } = router.query;
 
-  // Todo: 커스텀 훅으로 뺐을 떄 리렌더링 문제 해결해야함
-  const { data: reviewData } = useQuery<ReviewType, AxiosError>(
-    ['review', id],
-    async () => {
-      const { data } = await getReview(id);
-      return data.data;
-    },
-    {
-      enabled: !!id,
-    },
-  );
+  const { reviewData } = useGetReviewQuery({ id });
 
   const updateReviewMutation = useUpdateReviewMutation();
   const { type } = useWindowSize();

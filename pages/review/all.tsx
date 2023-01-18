@@ -10,7 +10,11 @@ const AllReviews = () => {
     <MainContainer>
       <Title text="모두보기" />
       {reviews && (
-        <ReviewList abled={Boolean(isExist && reviews)} reviews={reviews} />
+        <ReviewList
+          abled={Boolean(isExist && reviews)}
+          reviews={reviews}
+          type="all"
+        />
       )}
     </MainContainer>
   );

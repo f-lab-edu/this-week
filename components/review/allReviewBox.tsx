@@ -5,9 +5,6 @@ import useGetReviewsQuery from 'queries/useReviewQuery';
 
 const AllReviewBox = () => {
   const { reviews, isExist } = useGetReviewsQuery({ recent: 4 });
-  const getRandomInt = (max: number): number => {
-    return Math.floor(Math.random() * max);
-  };
 
   return (
     <div className="mb-2 grid h-40 grid-cols-2 gap-1">
