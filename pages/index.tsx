@@ -9,7 +9,7 @@ import { useGetThisWeekReviewQuery } from 'queries/useReviewQuery';
 export default function Home() {
   const { thisWeekReview, isExist } = useGetThisWeekReviewQuery();
   return (
-    <div className="min-h-screen pt-12">
+    <div className="h-full pt-12">
       <Banner />
       <CollectionOfReviews />
       <BottomFix

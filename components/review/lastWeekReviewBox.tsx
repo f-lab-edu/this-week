@@ -1,24 +1,36 @@
+import Link from 'next/link';
+import Image from 'next/image';
+
 import Folder from 'components/svgs/folderOpen.svg';
-import Hippo from 'components/svgs/hippo.svg';
 
 import { useGetLastWeekReviewQuery } from 'queries/useReviewQuery';
 
+// Todo: lastWeekReview 데이터 하나만 Get
 const LastWeekReviewBox = () => {
   const { lastWeekReview, isExist } = useGetLastWeekReviewQuery();
   return (
-    <div className="mb-2 flex h-40 flex-col items-center justify-center gap-4 rounded-lg bg-main-pink p-2 text-white">
-      {isExist && lastWeekReview ? (
-        <ul>
-          {lastWeekReview.map((review) => (
-            <li key={review.id} className="py-1 font-normal">
-              <Hippo width="50px" fill="#0000001A" />
-            </li>
-          ))}
-        </ul>
+    <section>
+      {isExist && lastWeekReview && lastWeekReview[0] ? (
+        <Link
+          href={`/review/${lastWeekReview[0].id}`}
+          as={`/review/${lastWeekReview[0].id}`}
+        >
+          <article className="mb-2 flex h-40 flex-col items-center justify-center gap-4 rounded-lg bg-main-pink p-2 text-white">
+            <Image
+              key={lastWeekReview[0].id}
+              src={`/static/abstract${lastWeekReview[0].attributes.week}.png`}
+              width="80"
+              height="80"
+              alt="empty"
+            />
+          </article>
+        </Link>
       ) : (
-        <Folder width="50px" fill="#0000001A" />
+        <article className="mb-2 flex h-40 flex-col items-center justify-center gap-4 rounded-lg bg-main-beige p-2">
+          <Folder width="50px" fill="#0000001A" />
+        </article>
       )}
-    </div>
+    </section>
   );
 };
 

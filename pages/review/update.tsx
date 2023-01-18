@@ -9,7 +9,7 @@ import AsyncBoundary from 'components/error/asyncBoundary';
 
 const ReviewUpdate = () => {
   return (
-    <div className="min-h-screen">
+    <div className="">
       <MainContainer>
         <div className="pb-4 lg:pb-10">
           <CurrentData />

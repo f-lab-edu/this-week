@@ -5,10 +5,7 @@ import LastMonthReviewBox from 'components/review/lastMonthReviewBox';
 import LastWeekReviewBox from 'components/review/lastWeekReviewBox';
 import ThisWeekReviewBox from 'components/review/thisWeekReviewBox';
 
-import { useGetThisWeekReviewQuery } from 'queries/useReviewQuery';
-
 const PastReview = () => {
-  const { thisWeekReview, isExist } = useGetThisWeekReviewQuery();
   return (
     <article className="grid-rows-8 grid w-full grid-cols-2 gap-x-4 gap-y-6 font-medium lg:h-full">
       <Link href="/review/all">
@@ -23,22 +20,14 @@ const PastReview = () => {
           <p>지난달</p>
         </div>
       </Link>
-      <Link href="/review/lastweek">
-        <div role="button" className="row-span-4 ">
-          <LastWeekReviewBox />
-          <p>지난주</p>
-        </div>
-      </Link>
-      <Link
-        href={
-          isExist && thisWeekReview && thisWeekReview[0] ? '/review/update' : ''
-        }
-      >
-        <div role="button" className="row-span-4 ">
-          <ThisWeekReviewBox />
-          <p>이번주</p>
-        </div>
-      </Link>
+      <div className="row-span-4 ">
+        <LastWeekReviewBox />
+        <p>지난주</p>
+      </div>
+      <div className="row-span-4 ">
+        <ThisWeekReviewBox />
+        <p>이번주</p>
+      </div>
     </article>
   );
 };

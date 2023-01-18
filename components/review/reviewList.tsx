@@ -1,11 +1,14 @@
+import Link from 'next/link';
 import { ReviewType } from 'queries/useReviewQuery';
+import ReviewSummaryCard from 'components/card/reviewSummaryCard';
 
 type ReviewListType = {
   abled: boolean;
   reviews: ReviewType[];
+  type: 'all' | 'lastMonth';
 };
 
-const ReviewList = ({ abled, reviews }: ReviewListType) => {
+const ReviewList = ({ abled, reviews, type }: ReviewListType) => {
   return (
     <ul className="flex flex-col gap-4 pt-8">
       {abled &&
@@ -15,13 +18,22 @@ const ReviewList = ({ abled, reviews }: ReviewListType) => {
             id,
           } = review;
           return (
-            <li
+            <Link
               key={id}
-              className="flex w-full flex-col gap-4 rounded-lg bg-main-beige p-4 hover:scale-105"
+              href={{
+                pathname: `/review/${id}`,
+                query: { weekType: type },
+              }}
+              as={`/review/${id}`}
             >
-              <p className="font-semibold">{`${year}년 ${month}월 ${week}주차 회고`}</p>
-              <div className="text-lg">{liked}</div>
-            </li>
+              <ReviewSummaryCard
+                id={id}
+                liked={liked}
+                week={week}
+                year={year}
+                month={month}
+              />
+            </Link>
           );
         })}
     </ul>

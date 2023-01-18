@@ -12,7 +12,7 @@ import useWindowSize from 'customs/useWindowSize';
 const Statistic = () => {
   const { type } = useWindowSize();
   return (
-    <div className="min-h-screen">
+    <div className="">
       <MainContainer>
         <HeaderContainer>
           <CurrentData />

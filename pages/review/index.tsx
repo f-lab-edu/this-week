@@ -199,7 +199,7 @@ const CreateReview = () => {
 
 const Statistic = () => {
   return (
-    <div className="min-h-screen">
+    <div className="">
       <MainContainer>
         <div className="pb-4 lg:pb-10">
           <CurrentData />

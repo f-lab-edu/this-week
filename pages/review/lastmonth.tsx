@@ -13,6 +13,7 @@ const LastMonthReviews = () => {
         <ReviewList
           abled={Boolean(isExist && lastMonthReviews)}
           reviews={lastMonthReviews}
+          type="lastMonth"
         />
       )}
     </MainContainer>

@@ -1,5 +1,5 @@
 import Folder from 'components/svgs/folderOpen.svg';
-import Rocket from 'components/svgs/rocket.svg';
+import Image from 'next/image';
 
 import useGetReviewsQuery from 'queries/useReviewQuery';
 
@@ -14,7 +14,12 @@ const AllReviewBox = () => {
             key={review.id}
             className="flex items-center justify-center rounded-lg bg-main-beige text-2xl"
           >
-            <Rocket width="25px" height="25px" fill="#0000001A" />
+            <Image
+              src={`/static/abstract${review.attributes.week}.png`}
+              width="50"
+              height="50"
+              alt="empty"
+            />
           </div>
         ))
       ) : (

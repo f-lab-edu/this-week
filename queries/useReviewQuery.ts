@@ -156,15 +156,19 @@ export const useGetThisWeekReviewQuery = () => {
   return { thisWeekReview, isSuccess, isExist };
 };
 
-export const useGetReviewQuery = (reviewId: string) => {
+export const useGetReviewQuery = ({
+  id,
+}: {
+  id: string | string[] | undefined;
+}) => {
   const { data: reviewData, isSuccess } = useQuery<ReviewType, AxiosError>(
-    reviewKeys.review(Number(reviewId)),
+    reviewKeys.review(Number(id)),
     async () => {
-      const { data } = await getReview(reviewId);
+      const { data } = await getReview(id);
       return data.data;
     },
     {
-      enabled: !!reviewId,
+      enabled: !!id,
       suspense: true,
     },
   );
