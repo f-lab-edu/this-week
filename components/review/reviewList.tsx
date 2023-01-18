@@ -1,4 +1,5 @@
 import { ReviewType } from 'queries/useReviewQuery';
+import ReviewSummaryCard from 'components/card/reviewSummaryCard';
 
 type ReviewListType = {
   abled: boolean;
@@ -15,13 +16,14 @@ const ReviewList = ({ abled, reviews }: ReviewListType) => {
             id,
           } = review;
           return (
-            <li
+            <ReviewSummaryCard
               key={id}
-              className="flex w-full flex-col gap-4 rounded-lg bg-main-beige p-4 hover:scale-105"
-            >
-              <p className="font-semibold">{`${year}년 ${month}월 ${week}주차 회고`}</p>
-              <div className="text-lg">{liked}</div>
-            </li>
+              id={id}
+              liked={liked}
+              week={week}
+              year={year}
+              month={month}
+            />
           );
         })}
     </ul>

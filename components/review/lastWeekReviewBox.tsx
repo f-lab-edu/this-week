@@ -12,6 +12,7 @@ const LastWeekReviewBox = () => {
         <ul>
           {lastWeekReview.map((review) => (
             <Image
+              key={review.id}
               src={`/static/abstract${review.attributes.week}.png`}
               width="80"
               height="80"
