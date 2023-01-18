@@ -7,7 +7,6 @@ export const getDayShortForm = (): RepeatDow => {
   const week = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
   return week[day.getDay()] as RepeatDow;
 };
-
 export const getWeek = dayjs().week();
 export const getMonth = dayjs().month() + 1;
 export const getStartDateOfThisWeek = dayjs().weekday(1);

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
+import Title from 'components/title/title';
 import MainContainer from 'components/container/mainContainer';
-import WeekNumber from 'components/title/weekNumber';
 import ReviewContents from 'components/review/reviewContents';
 
 import { useGetReviewQuery } from 'queries/useReviewQuery';
@@ -25,9 +25,16 @@ const ReviewDetail = () => {
       );
     }
   };
+
+  const getTitle = () => {
+    if (!reviewData) return '';
+    const { year, month, week } = reviewData.attributes;
+    return `${year}년 ${month}월 ${week}주차 회고`;
+  };
+
   return (
     <MainContainer>
-      <WeekNumber />
+      <Title text={getTitle()} />
       {getReviewContentsView()}
     </MainContainer>
   );
